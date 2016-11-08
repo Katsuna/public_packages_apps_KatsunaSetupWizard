@@ -21,7 +21,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ThemeConfig;
+//import android.content.res.ThemeConfig;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -124,11 +124,11 @@ public class CyanogenSettingsPage extends SetupPage {
                 }
             }
         });
-        handleEnableMetrics();
+        //handleEnableMetrics();
         handleDefaultThemeSetup();
     }
 
-    private void handleEnableMetrics() {
+/*    private void handleEnableMetrics() {
         Bundle privacyData = getData();
         if (privacyData != null
                 && privacyData.containsKey(KEY_SEND_METRICS)) {
@@ -136,12 +136,12 @@ public class CyanogenSettingsPage extends SetupPage {
                     CMSettings.Secure.STATS_COLLECTION, privacyData.getBoolean(KEY_SEND_METRICS)
                             ? 1 : 0);
         }
-    }
+    }*/
 
     private void handleDefaultThemeSetup() {
         Bundle privacyData = getData();
         if (!SetupWizardUtils.getDefaultThemePackageName(mContext).equals(
-                ThemeConfig.SYSTEM_DEFAULT) && privacyData != null &&
+                "system") && privacyData != null &&
                 privacyData.getBoolean(KEY_APPLY_DEFAULT_THEME)) {
             SetupStats.addEvent(SetupStats.Categories.SETTING_CHANGED,
                     SetupStats.Action.APPLY_CUSTOM_THEME,
@@ -168,7 +168,7 @@ public class CyanogenSettingsPage extends SetupPage {
 
     private static boolean hideThemeSwitch(Context context) {
         return SetupWizardUtils.getDefaultThemePackageName(context)
-                               .equals(ThemeConfig.SYSTEM_DEFAULT);
+                               .equals("system");
     }
 
     public static class CyanogenSettingsFragment extends SetupPageFragment {
@@ -290,11 +290,11 @@ public class CyanogenSettingsPage extends SetupPage {
             mNavKeysRow.setOnClickListener(mNavKeysClickListener);
             mNavKeys = (CheckBox) mRootView.findViewById(R.id.nav_keys_checkbox);
             boolean needsNavBar = true;
-            try {
+/*            try {
                 IWindowManager windowManager = WindowManagerGlobal.getWindowManagerService();
                 needsNavBar = windowManager.needsNavigationBar();
             } catch (RemoteException e) {
-            }
+            }*/
             mHideNavKeysRow = hideKeyDisabler(getActivity());
             if (mHideNavKeysRow || needsNavBar) {
                 mNavKeysRow.setVisibility(View.GONE);

@@ -456,13 +456,13 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
                 Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
                 Settings.Secure.putInt(getContentResolver(),
                         Settings.Secure.USER_SETUP_COMPLETE, 1);
-                CMSettings.Secure.putInt(getContentResolver(),
-                        CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 1);
+/*                CMSettings.Secure.putInt(getContentResolver(),
+                        CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 1);*/
                 if (mEnableAccessibilityController != null) {
                     mEnableAccessibilityController.onDestroy();
                 }
                 final ThemeManager tm = ThemeManager.getInstance(SetupWizardActivity.this);
-                tm.unregisterThemeChangeListener(SetupWizardActivity.this);
+                //tm.unregisterThemeChangeListener(SetupWizardActivity.this);
                 SetupStats.sendEvents(SetupWizardActivity.this);
                 SetupWizardUtils.disableGMSSetupWizard(SetupWizardActivity.this);
                 final WallpaperManager wallpaperManager =

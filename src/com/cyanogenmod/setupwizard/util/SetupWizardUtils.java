@@ -43,7 +43,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import cyanogenmod.providers.CMSettings;
 
-import static android.content.res.ThemeConfig.SYSTEM_DEFAULT;
+//import static android.content.res.ThemeConfig.SYSTEM_DEFAULT;
 
 public class SetupWizardUtils {
 
@@ -310,7 +310,7 @@ public class SetupWizardUtils {
     }
 
     public static String getDefaultThemePackageName(Context context) {
-        final String defaultThemePkg = CMSettings.Secure.getString(context.getContentResolver(),
+/*        final String defaultThemePkg = CMSettings.Secure.getString(context.getContentResolver(),
                 CMSettings.Secure.DEFAULT_THEME_PACKAGE);
         if (!TextUtils.isEmpty(defaultThemePkg)) {
             PackageManager pm = context.getPackageManager();
@@ -322,9 +322,9 @@ public class SetupWizardUtils {
                 // doesn't exist so system will be default
                 Log.w(TAG, "Default theme " + defaultThemePkg + " not found");
             }
-        }
+        }*/
 
-        return SYSTEM_DEFAULT;
+        return "system";
     }
 
     public static final ComponentName mTvwifisettingsActivity =

@@ -15,8 +15,10 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
     android-support-v13 \
     play \
-    libphonenumber \
-    org.cyanogenmod.platform.sdk
+    libphonenumber
+
+LOCAL_STATIC_JAVA_AAR_LIBRARIES := cmsdk
+LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES = cmsdk:cm/libs/org.cyanogenmod.platform.sdk.aar
 
 LOCAL_JAVA_LIBRARIES := telephony-common
 
@@ -27,7 +29,13 @@ res_dir := $(google_play_dir) res
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
 LOCAL_AAPT_FLAGS := --auto-add-overlay
 LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
+LOCAL_AAPT_FLAGS += --extra-packages org.cyanogenmod.platform.sdk
 
 include frameworks/opt/setupwizard/library/common.mk
 
 include $(BUILD_PACKAGE)
+
+#######################################
+include $(CLEAR_VARS)
+
+include $(BUILD_MULTI_PREBUILT)

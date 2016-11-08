@@ -28,8 +28,8 @@ public class StatsUtils {
     private static final String STATS_PACKAGE = "com.cyngn.stats";
 
     public static boolean isStatsCollectionEnabled(Context context) {
-        return CMSettings.Secure.getInt(context.getContentResolver(),
-                CMSettings.Secure.STATS_COLLECTION, 1) != 0;
+        return false; // CMSettings.Secure.getInt(context.getContentResolver(),
+                // CMSettings.Secure.STATS_COLLECTION, 1) != 0;
     }
 
     public static boolean isStatsPackageInstalled(Context context) {
