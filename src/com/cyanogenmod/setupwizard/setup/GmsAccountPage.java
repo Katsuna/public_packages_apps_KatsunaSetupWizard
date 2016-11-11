@@ -310,10 +310,15 @@ public class GmsAccountPage extends SetupPage {
                                     SetupStats.Label.PAGE, SetupStats.Label.GMS_ACCOUNT);
                             mFragment.startActivityForResult(intent,
                                     SetupWizardApp.REQUEST_CODE_SETUP_GMS, options.toBundle());
+                        Log.d(TAG, "startActivityForResult");
+                        Log.d(TAG, "REQUEST_CODE_SETUP_GMS=" + SetupWizardApp.REQUEST_CODE_SETUP_GMS);
+                        Log.d(TAG, "intent=" + intent.toString());
                         } catch (OperationCanceledException e) {
                             error = true;
+                            Log.e(TAG, "OperationCanceledException", e);
                         } catch (IOException e) {
                             error = true;
+                            Log.e(TAG, "IOException", e);
                         } catch (AuthenticatorException e) {
                             Log.e(TAG, "Error launching gms account", e);
                             error = true;

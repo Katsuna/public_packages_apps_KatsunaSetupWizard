@@ -30,7 +30,7 @@ public class SetupWizardApp extends Application {
 
     public static final String TAG = SetupWizardApp.class.getSimpleName();
     // Leave this off for release
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     public static final String ACTION_FINISHED = "com.cyanogenmod.setupwizard.SETUP_FINISHED";
 
