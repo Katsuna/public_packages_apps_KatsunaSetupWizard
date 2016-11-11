@@ -47,9 +47,6 @@ public class CMSetupWizardData extends AbstractSetupData {
     @Override
     protected PageList onNewPageList() {
         ArrayList<Page> pages = new ArrayList<Page>();
-        if (SetupWizardUtils.hasLeanback(mContext)) {
-            pages.add(new BluetoothSetupPage(mContext, this));
-        }
         pages.add(new WelcomePage(mContext, this));
         if (SetupWizardUtils.hasWifi(mContext)) {
             pages.add(new WifiSetupPage(mContext, this));
@@ -70,8 +67,7 @@ public class CMSetupWizardData extends AbstractSetupData {
         if (hasGMS) {
             pages.add(new GmsAccountPage(mContext, this));
         }
-        if (!SetupWizardUtils.hasLeanback(mContext) &&
-                SetupWizardUtils.isPackageInstalled(mContext,
+        if (SetupWizardUtils.isPackageInstalled(mContext,
                     mContext.getString(R.string.cm_account_package_name))) {
             pages.add(new CyanogenServicesPage(mContext, this).setHidden(true));
         }

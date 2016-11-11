@@ -26,8 +26,6 @@ import android.provider.Settings;
 
 import com.cyanogenmod.setupwizard.util.SetupWizardUtils;
 
-import cyanogenmod.providers.CMSettings;
-
 public class SetupWizardApp extends Application {
 
     public static final String TAG = SetupWizardApp.class.getSimpleName();
@@ -61,12 +59,6 @@ public class SetupWizardApp extends Application {
     public static final String EXTRA_SUPRESS_D2D_SETUP = "suppress_device_to_device_setup";
 
     public static final String KEY_DETECT_CAPTIVE_PORTAL = "captive_portal_detection_enabled";
-
-    private static final String[] THEME_PACKAGES = {
-            "org.cyanogenmod.theme.chooser",
-            "com.cyngn.theme.chooser",
-            "com.cyngn.themestore"
-    };
 
     public static final int REQUEST_CODE_SETUP_WIFI = 0;
     public static final int REQUEST_CODE_SETUP_GMS= 1;
@@ -113,13 +105,8 @@ public class SetupWizardApp extends Application {
                         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
                         Settings.Secure.putInt(getContentResolver(),
                                 Settings.Secure.USER_SETUP_COMPLETE, 1);
-                        CMSettings.Secure.putInt(getContentResolver(),
-                                CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 1);
                         SetupWizardUtils.disableGMSSetupWizard(SetupWizardApp.this);
                         SetupWizardUtils.disableSetupWizard(SetupWizardApp.this);
-                        if (!isOwner) {
-                            disableThemeComponentsForSecondaryUser();
-                        }
                     }
                 };
                 t.run();
@@ -172,18 +159,5 @@ public class SetupWizardApp extends Application {
 
     public void enableCaptivePortalDetection() {
         Settings.Global.putInt(getContentResolver(), KEY_DETECT_CAPTIVE_PORTAL, 1);
-    }
-
-    private void disableThemeComponentsForSecondaryUser() {
-        PackageManager pm = getPackageManager();
-        for(String pkgName : THEME_PACKAGES) {
-            try {
-                pm.getApplicationInfo(pkgName, 0);
-                pm.setApplicationEnabledSetting(pkgName,
-                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                // don't care
-            }
-        }
     }
 }

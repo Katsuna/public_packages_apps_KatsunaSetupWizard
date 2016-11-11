@@ -163,10 +163,6 @@ public class WelcomePage extends SetupPage {
     }
 
     private boolean isLocked() {
-        boolean isAuthorized = ((SetupWizardApp) mContext.getApplicationContext()).isAuthorized();
-        if (SetupWizardUtils.isDeviceLocked()) {
-            return !isAuthorized;
-        }
         return false;
     }
 

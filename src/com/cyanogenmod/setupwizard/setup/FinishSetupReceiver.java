@@ -13,7 +13,7 @@ public class FinishSetupReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (SetupWizardUtils.isDeviceLocked() || SetupWizardUtils.frpEnabled(context)) {
+        if (SetupWizardUtils.frpEnabled(context)) {
             return;
         }
         Settings.Global.putInt(context.getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
@@ -23,8 +23,6 @@ public class FinishSetupReceiver extends BroadcastReceiver {
                 StatusBarManager.DISABLE_NONE);
         Settings.Global.putInt(context.getContentResolver(),
                 SetupWizardApp.KEY_DETECT_CAPTIVE_PORTAL, 1);
-        cyanogenmod.providers.CMSettings.Secure.putInt(context.getContentResolver(),
-                cyanogenmod.providers.CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 1);
         SetupWizardUtils.disableGMSSetupWizard(context);
         SetupWizardUtils.disableSetupWizard(context);
     }

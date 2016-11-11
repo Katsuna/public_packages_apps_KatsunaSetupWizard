@@ -5,7 +5,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_PACKAGE_NAME := CyanogenSetupWizard
+LOCAL_PACKAGE_NAME := KatsunaSetupWizard
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 
@@ -17,9 +17,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     play \
     libphonenumber
 
-LOCAL_STATIC_JAVA_AAR_LIBRARIES := cmsdk
-LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES = cmsdk:cm/libs/org.cyanogenmod.platform.sdk.aar
-
 LOCAL_JAVA_LIBRARIES := telephony-common
 
 # Include res dir from chips
@@ -29,13 +26,7 @@ res_dir := $(google_play_dir) res
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
 LOCAL_AAPT_FLAGS := --auto-add-overlay
 LOCAL_AAPT_FLAGS += --extra-packages com.google.android.gms
-LOCAL_AAPT_FLAGS += --extra-packages org.cyanogenmod.platform.sdk
 
 include frameworks/opt/setupwizard/library/common.mk
 
 include $(BUILD_PACKAGE)
-
-#######################################
-include $(CLEAR_VARS)
-
-include $(BUILD_MULTI_PREBUILT)

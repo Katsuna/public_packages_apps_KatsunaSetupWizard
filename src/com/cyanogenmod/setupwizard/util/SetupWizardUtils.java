@@ -36,14 +36,10 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
-/*import com.android.internal.os.IKillSwitchService;*/
 import com.cyanogenmod.setupwizard.SetupWizardApp;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import cyanogenmod.providers.CMSettings;
-
-//import static android.content.res.ThemeConfig.SYSTEM_DEFAULT;
 
 public class SetupWizardUtils {
 
@@ -138,38 +134,12 @@ public class SetupWizardUtils {
         return true;
     }
 
-    public static boolean isDeviceLocked() {
-        /* IBinder b = ServiceManager.getService(Context.KILLSWITCH_SERVICE);
-        IKillSwitchService service = IKillSwitchService.Stub.asInterface(b);
-        if (service != null) {
-            try {
-                return service.isDeviceLocked();
-            } catch (Exception e) {
-                // silently fail
-            }
-        }*/
-        return false;
-    }
-
     public static boolean frpEnabled(Context context) {
         final PersistentDataBlockManager pdbManager = (PersistentDataBlockManager)
                 context.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
         return pdbManager != null
                 && pdbManager.getDataBlockSize() > 0
                 && !pdbManager.getOemUnlockEnabled();
-    }
-
-    public static boolean hasKillSwitch() {
-        /* IBinder b = ServiceManager.getService(Context.KILLSWITCH_SERVICE);
-        IKillSwitchService service = IKillSwitchService.Stub.asInterface(b);
-        if (service != null) {
-            try {
-                return service.hasKillSwitch();
-            } catch (Exception e) {
-                // silently fail
-            }
-        } */
-        return false;
     }
 
     public static boolean hasAuthorized() {
@@ -201,14 +171,6 @@ public class SetupWizardUtils {
     public static boolean hasGMS(Context context) {
         return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) !=
                 ConnectionResult.SERVICE_MISSING;
-    }
-
-    /**
-     * The assumption here is that if ambient core is present, we have MODs.
-     * In the future we will link against the SDK and use the util there.
-     */
-    public static boolean canHasModMOD(Context context) {
-        return isPackageInstalled(context, MODMOD_PACKAGE);
     }
 
     public static boolean accountExists(Context context, String accountType) {
@@ -298,38 +260,11 @@ public class SetupWizardUtils {
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }
 
-    public static boolean hasLeanback(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        return packageManager.hasSystemFeature(PackageManager.FEATURE_LEANBACK);
-    }
-
     public static boolean hasFingerprint(Context context) {
         FingerprintManager fingerprintManager = (FingerprintManager)
                 context.getSystemService(Context.FINGERPRINT_SERVICE);
         return fingerprintManager.isHardwareDetected();
     }
-
-    public static String getDefaultThemePackageName(Context context) {
-/*        final String defaultThemePkg = CMSettings.Secure.getString(context.getContentResolver(),
-                CMSettings.Secure.DEFAULT_THEME_PACKAGE);
-        if (!TextUtils.isEmpty(defaultThemePkg)) {
-            PackageManager pm = context.getPackageManager();
-            try {
-                if (pm.getPackageInfo(defaultThemePkg, 0) != null) {
-                    return defaultThemePkg;
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                // doesn't exist so system will be default
-                Log.w(TAG, "Default theme " + defaultThemePkg + " not found");
-            }
-        }*/
-
-        return "system";
-    }
-
-    public static final ComponentName mTvwifisettingsActivity =
-            new ComponentName("com.android.tv.settings",
-                    "com.android.tv.settings.connectivity.setup.WifiSetupActivity");
 
     public static final ComponentName mTvAddAccessorySettingsActivity =
             new ComponentName("com.android.tv.settings",

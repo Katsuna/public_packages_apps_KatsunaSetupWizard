@@ -53,14 +53,10 @@ import com.cyanogenmod.setupwizard.setup.SetupDataCallbacks;
 import com.cyanogenmod.setupwizard.util.EnableAccessibilityController;
 import com.cyanogenmod.setupwizard.util.SetupWizardUtils;
 
-import cyanogenmod.providers.CMSettings;
-import cyanogenmod.themes.ThemeManager;
-
 import java.util.ArrayList;
 
 
-public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
-        ThemeManager.ThemeChangeListener {
+public class SetupWizardActivity extends Activity implements SetupDataCallbacks {
 
     private static final String TAG = SetupWizardActivity.class.getSimpleName();
     private static final String KEY_LAST_PAGE_TAG = "last_page_tag";
@@ -339,33 +335,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
         mFinishingProgressBar.setVisibility(View.VISIBLE);
         mFinishingProgressBar.setIndeterminate(true);
         mFinishingProgressBar.startAnimation(fadeIn);
-        final ThemeManager tm = ThemeManager.getInstance(this);
-        try {
-            tm.registerThemeChangeListener(this);
-        } catch (Exception e) {
-            Log.w(TAG, "ThemeChangeListener already registered");
-        }
         mSetupData.finishPages();
-    }
-
-    @Override
-    public void onFinish(boolean isSuccess) {
-        if (isResumed()) {
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    finishSetup();
-                }
-            });
-        }
-    }
-
-    @Override
-    public void onProgress(int progress) {
-        if (progress > 0) {
-            mFinishingProgressBar.setIndeterminate(false);
-            mFinishingProgressBar.setProgress(progress);
-        }
+        finishSetup();
     }
 
     @Override
@@ -456,13 +427,9 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks,
                 Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
                 Settings.Secure.putInt(getContentResolver(),
                         Settings.Secure.USER_SETUP_COMPLETE, 1);
-/*                CMSettings.Secure.putInt(getContentResolver(),
-                        CMSettings.Secure.CM_SETUP_WIZARD_COMPLETED, 1);*/
                 if (mEnableAccessibilityController != null) {
                     mEnableAccessibilityController.onDestroy();
                 }
-                final ThemeManager tm = ThemeManager.getInstance(SetupWizardActivity.this);
-                //tm.unregisterThemeChangeListener(SetupWizardActivity.this);
                 SetupStats.sendEvents(SetupWizardActivity.this);
                 SetupWizardUtils.disableGMSSetupWizard(SetupWizardActivity.this);
                 final WallpaperManager wallpaperManager =
