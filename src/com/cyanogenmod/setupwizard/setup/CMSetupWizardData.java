@@ -63,10 +63,6 @@ public class CMSetupWizardData extends AbstractSetupData {
             pages.add(new MobileDataPage(mContext, this)
                     .setHidden(!isSimInserted() || mMobileDataEnabled));
         }
-        final boolean hasGMS = SetupWizardUtils.hasGMS(mContext);
-        if (hasGMS) {
-            pages.add(new GmsAccountPage(mContext, this));
-        }
         if (SetupWizardUtils.isPackageInstalled(mContext,
                     mContext.getString(R.string.cm_account_package_name))) {
             pages.add(new CyanogenServicesPage(mContext, this).setHidden(true));
@@ -77,7 +73,6 @@ public class CMSetupWizardData extends AbstractSetupData {
             pages.add(new ScreenLockSetupPage(mContext, this));
         }
         pages.add(new CyanogenSettingsPage(mContext, this));
-        pages.add(new OtherSettingsPage(mContext, this).setHidden(!hasGMS));
         pages.add(new DateTimePage(mContext, this));
         pages.add(new FinishPage(mContext, this));
         return new PageList(pages.toArray(new SetupPage[pages.size()]));
