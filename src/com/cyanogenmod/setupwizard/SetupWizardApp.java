@@ -43,6 +43,8 @@ public class SetupWizardApp extends Application {
     public static final String ACTION_SETUP_FINGERPRINT = "android.settings.FINGERPRINT_SETUP";
     public static final String ACTION_SETUP_LOCKSCREEN = "com.android.settings.SETUP_LOCK_SCREEN";
 
+    public static final String ACTION_KATSUNA_SETUP_FINISHED = "com.katsuna.SETUP_FINISHED";
+
     public static final String EXTRA_FIRST_RUN = "firstRun";
     public static final String EXTRA_ALLOW_SKIP = "allowSkip";
     public static final String EXTRA_AUTO_FINISH = "wifi_auto_finish_on_connect";
