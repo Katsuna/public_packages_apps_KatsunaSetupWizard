@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.setupwizard.tests;
+package com.katsuna.setupwizard.tests;
 
 
 import android.app.Activity;
@@ -62,17 +62,17 @@ public class ManualTestActivity extends Activity {
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
         final PackageManager pm = getPackageManager();
-        ComponentName componentName = new ComponentName("com.cyanogenmod.setupwizard",
-                "com.cyanogenmod.setupwizard.ui.SetupWizardActivity");
+        ComponentName componentName = new ComponentName("com.katsuna.setupwizard",
+                "com.katsuna.setupwizard.ui.SetupWizardActivity");
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
-        componentName = new ComponentName("com.cyanogenmod.setupwizard",
-                "com.cyanogenmod.setupwizard.setup.FinishSetupReceiver");
+        componentName = new ComponentName("com.katsuna.setupwizard",
+                "com.katsuna.setupwizard.setup.FinishSetupReceiver");
         pm.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                 PackageManager.DONT_KILL_APP);
-        pm.clearApplicationUserData("com.cyanogenmod.setupwizard", null);
+        pm.clearApplicationUserData("com.katsuna.setupwizard", null);
         ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-        am.killBackgroundProcesses("com.cyanogenmod.setupwizard");
+        am.killBackgroundProcesses("com.katsuna.setupwizard");
         try {
             PackageInfo packageInfo = getPackageManager()
                     .getPackageInfo("com.google.android.setupwizard",
@@ -120,12 +120,12 @@ public class ManualTestActivity extends Activity {
         Intent intent = new Intent("android.intent.action.MAIN");
         intent.addCategory("android.intent.category.HOME");
         final PackageManager pm = getPackageManager();
-        ComponentName componentName = new ComponentName("com.cyanogenmod.setupwizard",
-                "com.cyanogenmod.setupwizard.ui.SetupWizardActivity");
+        ComponentName componentName = new ComponentName("com.katsuna.setupwizard",
+                "com.katsuna.setupwizard.ui.SetupWizardActivity");
         pm.setComponentEnabledSetting(componentName,
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         ActivityManager am = (ActivityManager) getSystemService(Activity.ACTIVITY_SERVICE);
-        am.killBackgroundProcesses("com.cyanogenmod.setupwizard");
+        am.killBackgroundProcesses("com.katsuna.setupwizard");
         try {
             PackageInfo packageInfo = this.getPackageManager()
                     .getPackageInfo("com.google.android.setupwizard",

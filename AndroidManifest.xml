@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2013 The CyanogenMod Project
+     Copyright (C) 2016 Katsuna
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
-          package="com.cyanogenmod.setupwizard"
+          package="com.katsuna.setupwizard"
           android:versionCode="4"
           android:sharedUserId="android.uid.system">
 
@@ -37,28 +38,10 @@
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
     <uses-permission android:name="android.permission.MANAGE_USERS" />
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
-    <uses-permission android:name="cyanogenmod.permission.ACCESS_THEME_MANAGER"/>
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-permission android:name="android.permission.BACKUP" />
-    <uses-permission android:name="cyanogenmod.permission.FINISH_SETUP" />
-    <uses-permission android:name="cyanogenmod.permission.LEGALESE" />
-    <uses-permission android:name="com.cyngn.stats.SEND_ANALYTICS" />
-    <uses-permission android:name="com.cyanogen.permission.REQUEST_KILL_SWITCH_OP" />
-    <uses-permission android:name="cyanogenmod.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="cyanogenmod.permission.WRITE_SECURE_SETTINGS"/>
 
-    <permission
-        android:name="cyanogenmod.permission.PROTECTED_APP"
-        android:protectionLevel="signatureOrSystem" />
-
-    <permission
-        android:name="cyanogenmod.permission.FINISH_SETUP"
-        android:protectionLevel="signatureOrSystem"
-         />
-
-    <protected-broadcast android:name="com.cyanogenmod.setupwizard.SETUP_FINISHED"
-                         android:permission="cyanogenmod.permission.FINISH_SETUP"/>
+    <protected-broadcast android:name="com.katsuna.setupwizard.SETUP_FINISHED" />
 
     <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
 
@@ -93,7 +76,7 @@
         <receiver android:name=".setup.FinishSetupReceiver"
                   android:exported="true">
             <intent-filter>
-                <action android:name="com.cyanogenmod.setupwizard.ACTION_FINISH_SETUPWIZARD" />
+                <action android:name="com.katsuna.setupwizard.ACTION_FINISH_SETUPWIZARD" />
             </intent-filter>
         </receiver>
     </application>
