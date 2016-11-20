@@ -347,7 +347,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                             System.nanoTime() - sLaunchTime));
             final SetupWizardApp setupWizardApp = (SetupWizardApp)getApplication();
             setupWizardApp.sendStickyBroadcastAsUser(
-                    new Intent(SetupWizardApp.ACTION_FINISHED),
+                    new Intent(SetupWizardApp.ACTION_SETUP_FINISHED),
                     Binder.getCallingUserHandle());
             mIsFinishing = true;
             setupRevealImage();
