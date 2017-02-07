@@ -30,6 +30,7 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.LocaleList;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -184,12 +185,22 @@ public class WelcomePage extends SetupPage {
         private final Handler mHandler = new Handler();
         private boolean mPendingLocaleUpdate;
         private boolean mPaused = true;
+        private Locale mEnglishLocale;
 
         private final Runnable mUpdateLocale = new Runnable() {
             public void run() {
                 if (mCurrentLocale != null) {
                     mLanguagePicker.setEnabled(false);
-                    com.android.internal.app.LocalePicker.updateLocale(mCurrentLocale);
+
+                    mEnglishLocale = new Locale("en","US");
+                    if (mCurrentLocale.getLanguage().equals(mEnglishLocale.getLanguage())) {
+                        com.android.internal.app.LocalePicker.updateLocale(mCurrentLocale);
+                    } else {
+                        // Add en_US locale to support additional english subtype
+                        // for katsuna keyboard.
+                        LocaleList list = new LocaleList(mCurrentLocale, mEnglishLocale);
+                        com.android.internal.app.LocalePicker.updateLocales(list);
+                    }
                 }
             }
         };
