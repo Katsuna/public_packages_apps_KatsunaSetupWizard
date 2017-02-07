@@ -38,9 +38,6 @@ import android.util.Log;
 
 import com.katsuna.setupwizard.SetupWizardApp;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-
 public class SetupWizardUtils {
 
     private static final String TAG = SetupWizardUtils.class.getSimpleName();
@@ -166,11 +163,6 @@ public class SetupWizardUtils {
 
     public static boolean isOwner() {
         return Binder.getCallingUserHandle().isOwner();
-    }
-
-    public static boolean hasGMS(Context context) {
-        return GooglePlayServicesUtil.isGooglePlayServicesAvailable(context) !=
-                ConnectionResult.SERVICE_MISSING;
     }
 
     public static boolean accountExists(Context context, String accountType) {
