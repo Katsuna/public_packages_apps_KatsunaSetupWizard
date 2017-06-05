@@ -1,5 +1,8 @@
 LOCAL_PATH := $(call my-dir)
+KATSUNA_COMMON_PATH := $(ANDROID_BUILD_TOP)/frameworks/KatsunaCommon
 include $(CLEAR_VARS)
+
+LOCAL_FULL_LIBS_MANIFEST_FILES := $(KATSUNA_COMMON_PATH)/commons/src/main/AndroidManifest.xml
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
@@ -19,7 +22,16 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 LOCAL_JAVA_LIBRARIES := telephony-common
 
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res)
-LOCAL_AAPT_FLAGS := --auto-add-overlay
+LOCAL_RESOURCE_DIR += frameworks/support/v7/appcompat/res \
+    frameworks/KatsunaCommon/commons/src/main/res
+
+# Include KatsunaCommon into this app
+LOCAL_REQUIRED_MODULES := KatsunaCommon
+LOCAL_STATIC_JAVA_LIBRARIES += KatsunaCommon
+
+LOCAL_AAPT_FLAGS := --auto-add-overlay \
+    --extra-packages android.support.v17.preference:android.support.v7.appcompat \
+    --extra-packages com.katsuna.commons
 
 include frameworks/opt/setupwizard/library/common.mk
 

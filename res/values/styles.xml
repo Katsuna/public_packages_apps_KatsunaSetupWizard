@@ -22,10 +22,11 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary</item>
-        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:colorAccent">@color/common_indigoA700</item>
         <item name="android:textColorLink">@color/accent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowAnimationStyle">@style/ActivityAnimations</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="localePickerStyle">@style/LocaleWidget.Material.LocalePicker</item>
     </style>
 
@@ -46,11 +47,11 @@
 
     <style name="PageContainer">
         <item name="android:textColor">@color/primary_text</item>
-        <item name="android:background">@color/page_background</item>
+        <item name="android:background">@color/common_grey50</item>
     </style>
 
     <style name="PageContent">
-        <item name="android:background">@color/page_background</item>
+        <item name="android:background">@color/common_grey50</item>
         <item name="android:paddingTop">@dimen/content_margin_top</item>
     </style>
 

@@ -43,6 +43,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.setupwizardlib.util.SystemBarHelper;
+import com.katsuna.commons.entities.ColorProfileKey;
+import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.utils.ColorCalc;
+import com.katsuna.commons.utils.ProfileReader;
+import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
 import com.katsuna.setupwizard.cmstats.SetupStats;
@@ -184,6 +189,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             onPageTreeChanged();
             enableButtonBar(true);
         }
+
+        applyProfile();
     }
 
     @Override
@@ -259,7 +266,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         updateButtonBar();
     }
 
-    private void enableButtonBar(boolean enabled) {
+    public void enableButtonBar(boolean enabled) {
         mNextButton.setEnabled(enabled);
         mPrevButton.setEnabled(enabled);
     }
@@ -270,34 +277,24 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mNextButton.setText(page.getNextButtonTitleResId());
         if (page.getPrevButtonTitleResId() != -1) {
             mPrevButton.setText(page.getPrevButtonTitleResId());
+            mPrevButton.setVisibility(View.VISIBLE);
         } else {
             mPrevButton.setText("");
+            mPrevButton.setVisibility(View.INVISIBLE);
         }
         if (mSetupData.isFirstPage()) {
-            mPrevButton.setCompoundDrawables(null, null, null, null);
             mPrevButton.setVisibility(SetupWizardUtils.hasTelephony(this) ?
                     View.VISIBLE : View.INVISIBLE);
-        } else {
-            mPrevButton.setCompoundDrawablesWithIntrinsicBounds(
-                    getDrawable(R.drawable.ic_chevron_left_dark),
-                    null, null, null);
         }
-        final Resources resources = getResources();
-        if (mSetupData.isLastPage()) {
-            mNextButton.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                    getDrawable(R.drawable.ic_chevron_right_wht), null);
-            mNextButton.setTextColor(resources.getColor(R.color.white));
-            mPrevButton.setCompoundDrawablesWithIntrinsicBounds(
-                    getDrawable(R.drawable.ic_chevron_left_wht), null,
-                    null, null);
-            mPrevButton.setTextColor(resources.getColor(R.color.white));
-        } else {
-            mButtonBar.setBackgroundResource(R.color.button_bar_background);
-            mNextButton.setCompoundDrawablesWithIntrinsicBounds(null, null,
-                    getDrawable(R.drawable.ic_chevron_right_dark), null);
-            mNextButton.setTextColor(resources.getColorStateList(R.color.button_bar_text));
-            mPrevButton.setTextColor(resources.getColorStateList(R.color.button_bar_text));
-        }
+    }
+
+    public void applyProfile() {
+        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(this);
+        int color1 = ColorCalc.getColor(this, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
+        int color2 = ColorCalc.getColor(this, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
+        Shape.setRoundedBackground(mNextButton, color1);
+        Shape.setRoundedBorder(mPrevButton, color2);
+        mPrevButton.setTextColor(color2);
     }
 
     @Override
@@ -326,8 +323,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         Animation fadeOut = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
         mNextButton.startAnimation(fadeOut);
         mNextButton.setVisibility(View.INVISIBLE);
-        mPrevButton.startAnimation(fadeOut);
-        mPrevButton.setVisibility(View.INVISIBLE);
+/*        mPrevButton.startAnimation(fadeOut);
+        mPrevButton.setVisibility(View.INVISIBLE);*/
         final SetupWizardApp setupWizardApp = (SetupWizardApp)getApplication();
         setupWizardApp.enableStatusBar();
         setupWizardApp.enableCaptivePortalDetection();
@@ -385,7 +382,8 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
             mReveal.setBackground(wallpaperManager
                     .getBuiltInDrawable(p.x, p.y, false, 0, 0));
         }
-        animateOut();
+
+        finalizeSetup();
     }
 
     private void animateOut() {

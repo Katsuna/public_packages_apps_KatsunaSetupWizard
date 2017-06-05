@@ -51,7 +51,7 @@ public abstract class SetupPage implements Page {
 
     @Override
     public int getButtonBarBackgroundColorId() {
-        return R.color.button_bar_background;
+        return R.color.common_grey50;
     }
 
     @Override

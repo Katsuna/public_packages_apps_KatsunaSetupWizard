@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/katsuna_logo_header" />
+
+    <RelativeLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/content_margin_left"
+        android:paddingRight="@dimen/content_margin_left">
+
+        <RelativeLayout
+            android:id="@+id/page_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/katsuna_page_icon_margin_left"
+                android:src="@drawable/ic_hourglass_full_28dp" />
+
+            <TextView
+                style="@style/katsuna_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+                android:text="@string/age_setup" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/page_title_desc"
+            style="@style/katsuna_page_title_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title_wrapper"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:text="@string/age_setup_desc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_title_desc"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/day"
+                style="@style/katsuna_page_title_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:hint="@string/common_day"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <EditText
+                android:id="@+id/month"
+                style="@style/katsuna_page_title_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:hint="@string/common_month"
+                android:inputType="number"
+                android:maxLength="2" />
+
+            <EditText
+                android:id="@+id/year"
+                style="@style/katsuna_page_title_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:hint="@string/common_year"
+                android:inputType="number"
+                android:maxLength="4" />
+
+            <TextView
+                android:id="@+id/validation_error"
+                style="@style/katsuna_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:text="@string/common_date_validation_error"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

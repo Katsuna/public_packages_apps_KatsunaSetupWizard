@@ -20,10 +20,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import android.os.SystemProperties;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
-
 import android.util.Log;
 import com.android.internal.telephony.TelephonyIntents;
 import com.katsuna.setupwizard.R;
@@ -51,6 +49,7 @@ public class CMSetupWizardData extends AbstractSetupData {
         if (SetupWizardUtils.hasWifi(mContext)) {
             pages.add(new WifiSetupPage(mContext, this));
         }
+/*
         if (SetupWizardUtils.hasTelephony(mContext)) {
             pages.add(new SimCardMissingPage(mContext, this)
                     .setHidden(isSimInserted()));
@@ -74,6 +73,14 @@ public class CMSetupWizardData extends AbstractSetupData {
         }
         pages.add(new CyanogenSettingsPage(mContext, this));
         pages.add(new DateTimePage(mContext, this));
+*/
+
+        pages.add(new KatsunaAgeSetupPage(mContext, this));
+        pages.add(new KatsunaGenderSetupPage(mContext, this));
+        pages.add(new KatsunaHandSetupPage(mContext, this));
+        pages.add(new KatsunaSizeSetupPage(mContext, this));
+        pages.add(new KatsunaColorSetupPage(mContext, this));
+
         pages.add(new FinishPage(mContext, this));
         return new PageList(pages.toArray(new SetupPage[pages.size()]));
     }
@@ -90,7 +97,7 @@ public class CMSetupWizardData extends AbstractSetupData {
                 .equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
             showHideMobileDataPage();
             showHideAccountPages();
-        } else  if (intent.getAction()
+        } else if (intent.getAction()
                 .equals(TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED)) {
             showHideMobileDataPage();
             showHideAccountPages();
@@ -188,7 +195,7 @@ public class CMSetupWizardData extends AbstractSetupData {
             if (state != TelephonyManager.SIM_STATE_ABSENT
                     && state != TelephonyManager.SIM_STATE_UNKNOWN
                     && state != TelephonyManager.SIM_STATE_NOT_READY) {
-                 return true;
+                return true;
             }
         }
         return false;

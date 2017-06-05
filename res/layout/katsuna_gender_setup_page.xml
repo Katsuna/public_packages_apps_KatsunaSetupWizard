@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/katsuna_logo_header" />
+
+    <RelativeLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/content_margin_left"
+        android:paddingRight="@dimen/content_margin_left">
+
+        <RelativeLayout
+            android:id="@+id/page_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/katsuna_page_icon_margin_left"
+                android:src="@drawable/ic_wc_28dp" />
+
+            <TextView
+                style="@style/katsuna_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/katsuna_page_title_margin_left"
+                android:text="@string/gender_setup" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/page_title_desc"
+            style="@style/katsuna_page_title_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title_wrapper"
+            android:layout_marginLeft="@dimen/katsuna_page_title_margin_left"
+            android:text="@string/gender_setup_desc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_title_desc"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radio_group_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_gender_male"
+                    style="@style/katsuna_page_title_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_male_24px"
+                    android:text="@string/male"
+                    android:textAlignment="textStart" />
+
+                <RadioButton
+                    android:id="@+id/radio_gender_female"
+                    style="@style/katsuna_page_title_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                    android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_female_24px"
+                    android:text="@string/female"
+                    android:textAlignment="textStart" />
+
+                <RadioButton
+                    android:id="@+id/radio_gender_other"
+                    style="@style/katsuna_page_title_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                    android:paddingStart="34dp"
+                    android:text="@string/other"
+                    android:textAlignment="textStart" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/text_other_gender_descr"
+                style="@style/katsuna_page_title_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:hint="@string/gender_hint"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="katsuna_page_title">
+        <item name="android:textSize">@dimen/katsuna_page_title_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/common_black87</item>
+    </style>
+
+    <style name="katsuna_page_title_desc">
+        <item name="android:textSize">@dimen/katsuna_page_title_desc_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/common_black54</item>
+    </style>
+
+    <style name="katsuna_error">
+        <item name="android:textSize">@dimen/katsuna_page_title_desc_text_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+    </style>
+
+</resources>

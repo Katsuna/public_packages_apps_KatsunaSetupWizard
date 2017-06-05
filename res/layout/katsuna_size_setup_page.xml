@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/katsuna_logo_header" />
+
+    <RelativeLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/content_margin_left"
+        android:paddingRight="@dimen/content_margin_left">
+
+        <RelativeLayout
+            android:id="@+id/page_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/katsuna_page_icon_margin_left"
+                android:src="@drawable/ic_format_size_28dp" />
+
+            <TextView
+                style="@style/katsuna_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+                android:text="@string/size_setup" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/page_title_desc"
+            style="@style/katsuna_page_title_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title_wrapper"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:text="@string/size_setup_desc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_title_desc"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_ithaca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/ithaca" />
+
+            <TextView
+                android:id="@+id/text_ithaca_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/ithaca_full" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_size_advanced"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                    android:gravity="center"
+                    android:text="@string/size_selector"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_size_intermediate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                    android:gravity="center"
+                    android:text="@string/size_selector"
+                    android:textSize="20sp" />
+
+                <RadioButton
+                    android:id="@+id/radio_size_simple"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:drawableTop="?android:attr/listChoiceIndicatorSingle"
+                    android:gravity="center"
+                    android:text="@string/size_selector"
+                    android:textSize="26sp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

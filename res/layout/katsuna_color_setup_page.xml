@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/katsuna_logo_header" />
+
+    <RelativeLayout
+        android:id="@+id/page"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/content_margin_left"
+        android:paddingRight="@dimen/content_margin_left">
+
+        <RelativeLayout
+            android:id="@+id/page_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/katsuna_page_icon_margin_left"
+                android:src="@drawable/ic_palette_28dp" />
+
+            <TextView
+                style="@style/katsuna_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+                android:text="@string/color_setup" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/page_title_desc"
+            style="@style/katsuna_page_title_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title_wrapper"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:text="@string/color_setup_desc" />
+
+        <RadioGroup
+            android:id="@+id/color_profiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_title_desc"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/profile_impairement"
+                android:layout_width="@dimen/katsun_color_profile_width"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:drawableStart="@drawable/katsuna_color_profile_1"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/profile_main"
+                android:layout_width="@dimen/katsun_color_profile_width"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:drawableStart="@drawable/katsuna_color_profile_2"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/profile_contrast_impairement"
+                android:layout_width="@dimen/katsun_color_profile_width"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:drawableStart="@drawable/katsuna_color_profile_3"
+                android:padding="16dp" />
+
+            <RadioButton
+                android:id="@+id/profile_contrast"
+                android:layout_width="@dimen/katsun_color_profile_width"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
+                android:drawableStart="@drawable/katsuna_color_profile_4"
+                android:padding="16dp" />
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

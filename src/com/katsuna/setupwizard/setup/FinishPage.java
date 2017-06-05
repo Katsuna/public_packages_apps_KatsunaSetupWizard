@@ -60,13 +60,13 @@ public class FinishPage extends SetupPage {
     }
 
     @Override
-    public int getButtonBarBackgroundColorId() {
-        return R.color.primary;
+    public int getTitleResId() {
+        return R.string.setup_complete;
     }
 
     @Override
-    public int getTitleResId() {
-        return R.string.setup_complete;
+    public int getPrevButtonTitleResId() {
+        return R.string.back;
     }
 
     @Override
