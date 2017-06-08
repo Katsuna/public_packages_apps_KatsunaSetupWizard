@@ -25,13 +25,16 @@ LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res)
 LOCAL_RESOURCE_DIR += frameworks/support/v7/appcompat/res \
     frameworks/KatsunaCommon/commons/src/main/res
 
+LOCAL_STATIC_JAVA_AAR_LIBRARIES := roundedimageview
+
 # Include KatsunaCommon into this app
 LOCAL_REQUIRED_MODULES := KatsunaCommon
 LOCAL_STATIC_JAVA_LIBRARIES += KatsunaCommon
 
 LOCAL_AAPT_FLAGS := --auto-add-overlay \
     --extra-packages android.support.v17.preference:android.support.v7.appcompat \
-    --extra-packages com.katsuna.commons
+    --extra-packages com.katsuna.commons \
+    --extra-packages com.makeramen.roundedimageview
 
 include frameworks/opt/setupwizard/library/common.mk
 
