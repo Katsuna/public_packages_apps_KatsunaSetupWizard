@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
-                android:text="@string/size_setup" />
+                android:text="@string/common_size" />
 
         </RelativeLayout>
 
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/ithaca" />
+                android:text="@string/common_ithaca" />
 
             <TextView
                 android:id="@+id/text_ithaca_full"
@@ -81,7 +81,7 @@
                     android:button="@null"
                     android:drawableTop="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="center"
-                    android:text="@string/size_selector"
+                    android:text="@string/common_size_selector"
                     android:textSize="18sp" />
 
                 <RadioButton
@@ -92,7 +92,7 @@
                     android:button="@null"
                     android:drawableTop="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="center"
-                    android:text="@string/size_selector"
+                    android:text="@string/common_size_selector"
                     android:textSize="20sp" />
 
                 <RadioButton
@@ -103,7 +103,7 @@
                     android:button="@null"
                     android:drawableTop="?android:attr/listChoiceIndicatorSingle"
                     android:gravity="center"
-                    android:text="@string/size_selector"
+                    android:text="@string/common_size_selector"
                     android:textSize="26sp" />
 
             </RadioGroup>

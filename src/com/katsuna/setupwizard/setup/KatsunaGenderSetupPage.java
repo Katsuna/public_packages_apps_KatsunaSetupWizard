@@ -50,7 +50,7 @@ public class KatsunaGenderSetupPage extends SetupPage {
 
     @Override
     public int getTitleResId() {
-        return R.string.gender_setup;
+        return R.string.common_gender;
     }
 
     @Override

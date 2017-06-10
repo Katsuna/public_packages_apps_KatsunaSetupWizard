@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Labele for language setup -->
     <string name="language_setup">Select language</string>
+
+    <!-- Label for age setup -->
     <string name="age_setup">Your age</string>
+
+    <!-- Label for age setup description -->
     <string name="age_setup_desc">Enter your birthday</string>
-    <string name="gender_setup">Gender</string>
+
+    <!-- Label for gender setting -->
     <string name="gender_setup_desc">Enter your gender</string>
+
+    <!-- Hand of use label -->
     <string name="hand_setup">Hand of use</string>
+
+    <!-- Hand of use description label -->
     <string name="hand_setup_desc">Select your preferred hand of input</string>
-    <string name="size_setup">Text size</string>
+
+    <!-- Optical size setup decription label -->
     <string name="size_setup_desc">Select preferred size of letters and icons</string>
+
+    <!-- Color settings label -->
     <string name="color_setup">Colour</string>
+
+    <!-- Color description label -->
     <string name="color_setup_desc">Select preferred colours</string>
+
+    <!-- Back button text -->
     <string name="back">Back</string>
 
-    <string name="ithaca">ITHACA</string>
+    <!-- Sample text for optical size profile preview -->
     <string name="ithaca_full">As you set out for ITHACA hope the voyage is a long one, full of
         adventure, full of discovery. Laistrygonians and Cyclops, angry Poseidon—don’t be afraid of
         them: you’ll never find things like that on your way as long as you keep your thoughts
         raised high, as long as a rare excitement stirs your spirit and your body.</string>
-    <string name="size_selector" translatable="false">A</string>
-
-    <string name="hand_left">Left</string>
-    <string name="hand_right">Right</string>
-
-    <string name="male">Male</string>
-    <string name="female">Female</string>
-    <string name="other">Other</string>
-    <string name="gender_hint">Please specify</string>
 
 </resources>

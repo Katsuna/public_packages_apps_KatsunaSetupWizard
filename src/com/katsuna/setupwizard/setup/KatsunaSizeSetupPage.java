@@ -53,7 +53,7 @@ public class KatsunaSizeSetupPage extends SetupPage {
 
     @Override
     public int getTitleResId() {
-        return R.string.size_setup;
+        return R.string.common_size;
     }
 
     @Override

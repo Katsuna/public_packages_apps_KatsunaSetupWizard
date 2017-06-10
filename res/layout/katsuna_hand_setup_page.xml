@@ -64,7 +64,7 @@
                 android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_rightpan_tool_24px"
-                android:text="@string/hand_right"
+                android:text="@string/common_hand_right"
                 android:textAlignment="textStart" />
 
             <RadioButton
@@ -78,7 +78,7 @@
                 android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
                 android:drawablePadding="10dp"
                 android:drawableStart="@drawable/ic_leftpan_tool_24px"
-                android:text="@string/hand_left"
+                android:text="@string/common_hand_left"
                 android:textAlignment="textStart" />
 
         </RadioGroup>
