@@ -43,7 +43,6 @@ import android.widget.Toast;
 import com.android.internal.telephony.MccTable;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.LocalePicker;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
@@ -87,9 +86,6 @@ public class WelcomePage extends SetupPage {
             confirmCyanogenCredentials(mWelcomeFragment);
             return true;
         } else {
-            if (mWelcomeFragment != null) {
-                mWelcomeFragment.sendLocaleStats();
-            }
             return super.doNextAction();
         }
     }
@@ -103,10 +99,6 @@ public class WelcomePage extends SetupPage {
                 ActivityOptions.makeCustomAnimation(mContext,
                         android.R.anim.fade_in,
                         android.R.anim.fade_out);
-        SetupStats.addEvent(SetupStats.Categories.BUTTON_CLICK, SetupStats.Label.EMERGENCY_CALL);
-        SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                SetupStats.Action.EXTERNAL_PAGE_LAUNCH,
-                SetupStats.Label.PAGE,  SetupStats.Label.EMERGENCY_CALL);
         mContext.startActivity(intent, options.toBundle());
         return true;
     }
@@ -209,11 +201,6 @@ public class WelcomePage extends SetupPage {
         protected void initializePage() {
             mLanguagePicker = (LocalePicker) mRootView.findViewById(R.id.locale_list);
             loadLanguages();
-            final boolean brandedDevice = getResources().getBoolean(
-                    R.bool.branded_device);
-            if (brandedDevice) {
-                mRootView.findViewById(R.id.powered_by_logo).setVisibility(View.VISIBLE);
-            }
         }
 
         private void loadLanguages() {
@@ -274,14 +261,6 @@ public class WelcomePage extends SetupPage {
         @Override
         protected int getLayoutResource() {
             return R.layout.setup_welcome_page;
-        }
-
-        public void sendLocaleStats() {
-            if (!mCurrentLocale.equals(mInitialLocale)) {
-                SetupStats.addEvent(SetupStats.Categories.SETTING_CHANGED,
-                        SetupStats.Action.CHANGE_LOCALE, SetupStats.Label.LOCALE,
-                        mCurrentLocale.getDisplayName());
-            }
         }
 
         public void fetchAndUpdateSimLocale() {

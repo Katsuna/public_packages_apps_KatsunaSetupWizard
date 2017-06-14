@@ -28,7 +28,6 @@ import android.widget.TextView;
 import com.android.internal.widget.LockPatternUtils;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 
 public class FingerprintSetupPage extends SetupPage {
@@ -113,9 +112,6 @@ public class FingerprintSetupPage extends SetupPage {
                     ActivityOptions.makeCustomAnimation(getActivity(),
                             android.R.anim.fade_in,
                             android.R.anim.fade_out);
-            SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                    SetupStats.Action.EXTERNAL_PAGE_LAUNCH,
-                    SetupStats.Label.PAGE,  SetupStats.Label.FINGERPRINT_SETUP);
             startActivityForResult(intent, SetupWizardApp.REQUEST_CODE_SETUP_FINGERPRINT,
                     options.toBundle());
         }

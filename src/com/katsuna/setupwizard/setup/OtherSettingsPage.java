@@ -17,7 +17,6 @@
 package com.katsuna.setupwizard.setup;
 
 import com.katsuna.setupwizard.R;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
 
@@ -225,10 +224,6 @@ public class OtherSettingsPage extends SetupPage {
         }
 
         private void onToggleLocationAccess(boolean checked) {
-            SetupStats.addEvent(SetupStats.Categories.SETTING_CHANGED,
-                    SetupStats.Action.ENABLE_LOCATION,
-                    SetupStats.Label.CHECKED, String.valueOf(checked));
-
             if (checked) {
                 setLocationMode(Settings.Secure.LOCATION_MODE_SENSORS_ONLY);
             } else {
@@ -249,10 +244,6 @@ public class OtherSettingsPage extends SetupPage {
         }
 
         private void onToggleNetwork(boolean checked) {
-            SetupStats.addEvent(SetupStats.Categories.SETTING_CHANGED,
-                    SetupStats.Action.ENABLE_NETWORK_LOCATION,
-                    SetupStats.Label.CHECKED, String.valueOf(checked));
-
             if (checked) {
                 setLocationMode(Settings.Secure.LOCATION_MODE_HIGH_ACCURACY);
             } else {

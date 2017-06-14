@@ -27,7 +27,6 @@ import android.view.View;
 import android.widget.TextView;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 
 public class ScreenLockSetupPage extends SetupPage {
@@ -106,9 +105,6 @@ public class ScreenLockSetupPage extends SetupPage {
                     ActivityOptions.makeCustomAnimation(getActivity(),
                             android.R.anim.fade_in,
                             android.R.anim.fade_out);
-            SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                    SetupStats.Action.EXTERNAL_PAGE_LAUNCH,
-                    SetupStats.Label.PAGE,  SetupStats.Label.LOCKSCREEN_SETUP);
             startActivityForResult(intent, SetupWizardApp.REQUEST_CODE_SETUP_LOCKSCREEN,
                     options.toBundle());
         }

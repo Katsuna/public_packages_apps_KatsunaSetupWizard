@@ -32,7 +32,6 @@ import android.util.Log;
 
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.LoadingFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
 
@@ -95,19 +94,12 @@ public class CyanogenServicesPage extends SetupPage {
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == SetupWizardApp.REQUEST_CODE_SETUP_KATSUNA) {
             if (resultCode == Activity.RESULT_OK || resultCode == Activity.RESULT_FIRST_USER) {
-                SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                        SetupStats.Action.EXTERNAL_PAGE_RESULT,
-                        SetupStats.Label.KATSUNA_ACCOUNT,
-                        resultCode == Activity.RESULT_OK ? "success" : "skipped");
                 if (SetupWizardUtils.accountExists(mContext,
                         mContext.getString(R.string.cm_account_type))) {
                     setHidden(true);
                 }
                 getCallbacks().onNextPage();
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                        SetupStats.Action.EXTERNAL_PAGE_RESULT,
-                        SetupStats.Label.KATSUNA_ACCOUNT, "canceled");
                 getCallbacks().onPreviousPage();
             }
         }
@@ -133,11 +125,6 @@ public class CyanogenServicesPage extends SetupPage {
                                             ActivityOptions.makeCustomAnimation(mContext,
                                                     android.R.anim.fade_in,
                                                     android.R.anim.fade_out);
-                                    SetupStats
-                                            .addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                                                    SetupStats.Action.EXTERNAL_PAGE_LAUNCH,
-                                                    SetupStats.Label.PAGE,
-                                                    SetupStats.Label.KATSUNA_ACCOUNT);
                                     mFragment.startActivityForResult(intent,
                                             SetupWizardApp.REQUEST_CODE_SETUP_KATSUNA,
                                             options.toBundle());

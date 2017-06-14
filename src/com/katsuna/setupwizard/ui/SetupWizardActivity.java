@@ -50,7 +50,6 @@ import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.setup.CMSetupWizardData;
 import com.katsuna.setupwizard.setup.GmsAccountPage;
 import com.katsuna.setupwizard.setup.Page;
@@ -96,7 +95,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         }
         SystemBarHelper.hideSystemBars(getWindow());
         if (sLaunchTime == 0) {
-            SetupStats.addEvent(SetupStats.Categories.APP_LAUNCH, TAG);
             sLaunchTime = System.nanoTime();
         }
         setContentView(R.layout.setup_main);
@@ -339,9 +337,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
     @Override
     public void finishSetup() {
         if (!mIsFinishing) {
-            SetupStats.addEvent(SetupStats.Categories.APP_FINISHED, TAG,
-                    SetupStats.Label.TOTAL_TIME, String.valueOf(
-                            System.nanoTime() - sLaunchTime));
             final SetupWizardApp setupWizardApp = (SetupWizardApp)getApplication();
             setupWizardApp.sendStickyBroadcastAsUser(
                     new Intent(SetupWizardApp.ACTION_SETUP_FINISHED),
@@ -428,7 +423,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 if (mEnableAccessibilityController != null) {
                     mEnableAccessibilityController.onDestroy();
                 }
-                SetupStats.sendEvents(SetupWizardActivity.this);
                 SetupWizardUtils.disableGMSSetupWizard(SetupWizardActivity.this);
                 final WallpaperManager wallpaperManager =
                         WallpaperManager.getInstance(SetupWizardActivity.this);

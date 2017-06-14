@@ -41,7 +41,6 @@ import android.widget.TextView;
 
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
 

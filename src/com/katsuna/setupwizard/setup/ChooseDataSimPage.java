@@ -48,7 +48,6 @@ import com.android.internal.telephony.TelephonyIntents;
 
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
 
@@ -355,9 +354,6 @@ public class ChooseDataSimPage extends SetupPage {
                 for (int i = 0; i < mCheckBoxes.size(); i++) {
                     if (subInfoRecord.getSimSlotIndex() == i) {
                         mCheckBoxes.get(i).setChecked(true);
-                        SetupStats.addEvent(SetupStats.Categories.SETTING_CHANGED,
-                                SetupStats.Action.PREFERRED_DATA_SIM,
-                                SetupStats.Label.SLOT, String.valueOf(i + 1));
                     } else {
                         mCheckBoxes.get(i).setChecked(false);
                     }

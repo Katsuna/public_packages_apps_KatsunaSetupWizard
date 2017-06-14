@@ -26,8 +26,6 @@ import android.transition.Transition;
 import android.view.Gravity;
 
 import com.katsuna.setupwizard.R;
-import com.katsuna.setupwizard.cmstats.SetupStats;
-
 
 public abstract class SetupPage implements Page {
 
@@ -81,18 +79,12 @@ public abstract class SetupPage implements Page {
     public void doLoadAction(FragmentManager fragmentManager, int action) {
         Fragment fragment = getFragment(fragmentManager, action);
         if (action == Page.ACTION_NEXT) {
-            SetupStats.addEvent(SetupStats.Categories.BUTTON_CLICK,
-                    SetupStats.Action.NEXT_BUTTON, getKey(),
-                    String.valueOf(System.currentTimeMillis()));
             Transition t = new Slide(Gravity.RIGHT);
             fragment.setEnterTransition(t);
             fragmentManager.beginTransaction()
                     .replace(R.id.content,fragment, getKey())
                     .commit();
         } else {
-            SetupStats.addEvent(SetupStats.Categories.BUTTON_CLICK,
-                    SetupStats.Action.PREVIOUS_BUTTON, getKey(),
-                    String.valueOf(System.currentTimeMillis()));
             Transition t = new Slide(Gravity.LEFT);
             fragment.setEnterTransition(t);
             fragmentManager.beginTransaction()

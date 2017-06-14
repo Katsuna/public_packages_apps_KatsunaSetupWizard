@@ -28,7 +28,6 @@ import android.util.Log;
 
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.cmstats.SetupStats;
 import com.katsuna.setupwizard.ui.LoadingFragment;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
@@ -91,9 +90,6 @@ public class BluetoothSetupPage extends SetupPage {
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == SetupWizardApp.REQUEST_CODE_SETUP_BLUETOOTH) {
-            SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                    SetupStats.Action.EXTERNAL_PAGE_RESULT,
-                    SetupStats.Label.BLUETOOTH_SETUP, "success");
             getCallbacks().onNextPage();
         }  else {
             return false;
@@ -111,9 +107,6 @@ public class BluetoothSetupPage extends SetupPage {
                 ActivityOptions.makeCustomAnimation(mContext,
                         android.R.anim.fade_in,
                         android.R.anim.fade_out);
-        SetupStats.addEvent(SetupStats.Categories.EXTERNAL_PAGE_LOAD,
-                SetupStats.Action.EXTERNAL_PAGE_LAUNCH,
-                SetupStats.Label.PAGE,  SetupStats.Label.BLUETOOTH_SETUP);
         mLoadingFragment.startActivityForResult(intent,
                 SetupWizardApp.REQUEST_CODE_SETUP_BLUETOOTH, options.toBundle());
     }
