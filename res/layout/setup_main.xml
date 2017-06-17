@@ -14,16 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<com.katsuna.setupwizard.ui.widget.ScrimInsetsFrameLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    android:fitsSystemWindows="true"
-    app:insetForeground="@android:color/transparent">
+    android:fitsSystemWindows="true">
 
     <LinearLayout android:orientation="vertical"
                   android:layout_width="match_parent"
@@ -53,5 +51,5 @@
         android:layout_gravity="bottom"
         android:visibility="gone"/>
 
-</com.katsuna.setupwizard.ui.widget.ScrimInsetsFrameLayout>
+</FrameLayout>
 

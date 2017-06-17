@@ -82,12 +82,7 @@ public class WelcomePage extends SetupPage {
 
     @Override
     public boolean doNextAction() {
-        if (isLocked()) {
-            confirmCyanogenCredentials(mWelcomeFragment);
-            return true;
-        } else {
-            return super.doNextAction();
-        }
+        return super.doNextAction();
     }
 
     @Override
@@ -122,41 +117,12 @@ public class WelcomePage extends SetupPage {
 
     @Override
     public int getNextButtonTitleResId() {
-        if (isLocked()) {
-            return R.string.setup_unlock;
-        } else {
-            return R.string.next;
-        }
+        return R.string.next;
     }
 
     @Override
     public int getPrevButtonTitleResId() {
         return R.string.emergency_call;
-    }
-
-    private void confirmCyanogenCredentials(final Fragment fragment) {
-        AccountManager accountManager = AccountManager.get(mContext);
-        accountManager.editProperties(SetupWizardApp.ACCOUNT_TYPE_KATSUNA, null,
-                new AccountManagerCallback<Bundle>() {
-                    public void run(AccountManagerFuture<Bundle> f) {
-                        try {
-                            Bundle b = f.getResult();
-                            Intent i = b.getParcelable(AccountManager.KEY_INTENT);
-                            i.putExtra(SetupWizardApp.EXTRA_FIRST_RUN, true);
-                            i.putExtra(SetupWizardApp.EXTRA_SHOW_BUTTON_BAR, true);
-                            i.putExtra(SetupWizardApp.EXTRA_USE_IMMERSIVE, true);
-                            i.putExtra(SetupWizardApp.EXTRA_LOGIN_FOR_KILL_SWITCH, true);
-                            fragment.startActivityForResult(i,
-                                    SetupWizardApp.REQUEST_CODE_UNLOCK);
-                        } catch (Throwable t) {
-                            Log.e(getKey(), "confirmCredentials failed", t);
-                        }
-                    }
-                }, null);
-    }
-
-    private boolean isLocked() {
-        return false;
     }
 
     public void simChanged() {

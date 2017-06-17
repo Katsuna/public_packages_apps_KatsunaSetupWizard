@@ -14,7 +14,6 @@
         android:layout_gravity="top"
         android:layout_margin="8dp"
         android:padding="8dp"
-        android:stateListAnimator="@null"
         android:textAllCaps="false" />
 
     <Button
