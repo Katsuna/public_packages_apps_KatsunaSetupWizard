@@ -37,4 +37,7 @@
         them: you’ll never find things like that on your way as long as you keep your thoughts
         raised high, as long as a rare excitement stirs your spirit and your body.</string>
 
+    <!-- Welcome message -->
+    <string name="welcome_to">Welcome to</string>
+
 </resources>

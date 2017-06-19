@@ -75,6 +75,7 @@ public class CMSetupWizardData extends AbstractSetupData {
         pages.add(new DateTimePage(mContext, this));
 */
 
+        pages.add(new KatsunaWelcomePage(mContext, this));
         pages.add(new KatsunaAgeSetupPage(mContext, this));
         pages.add(new KatsunaGenderSetupPage(mContext, this));
         pages.add(new KatsunaHandSetupPage(mContext, this));
