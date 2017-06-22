@@ -46,42 +46,19 @@ public class CMSetupWizardData extends AbstractSetupData {
     protected PageList onNewPageList() {
         ArrayList<Page> pages = new ArrayList<Page>();
         pages.add(new WelcomePage(mContext, this));
+        pages.add(new KatsunaEulaPage(mContext, this));
         if (SetupWizardUtils.hasWifi(mContext)) {
             pages.add(new WifiSetupPage(mContext, this));
         }
-/*
-        if (SetupWizardUtils.hasTelephony(mContext)) {
-            pages.add(new SimCardMissingPage(mContext, this)
-                    .setHidden(isSimInserted()));
-        }
-        if (SetupWizardUtils.isMultiSimDevice(mContext)) {
-            pages.add(new ChooseDataSimPage(mContext, this)
-                    .setHidden(!allSimsInserted()));
-        }
-        if (SetupWizardUtils.hasTelephony(mContext)) {
-            pages.add(new MobileDataPage(mContext, this)
-                    .setHidden(!isSimInserted() || mMobileDataEnabled));
-        }
-        if (SetupWizardUtils.isPackageInstalled(mContext,
-                    mContext.getString(R.string.cm_account_package_name))) {
-            pages.add(new CyanogenServicesPage(mContext, this).setHidden(true));
-        }
-        if (SetupWizardUtils.hasFingerprint(mContext) && SetupWizardUtils.isOwner()) {
-            pages.add(new FingerprintSetupPage(mContext, this));
-        } else if (SetupWizardUtils.frpEnabled(mContext)) {
-            pages.add(new ScreenLockSetupPage(mContext, this));
-        }
-        pages.add(new CyanogenSettingsPage(mContext, this));
-        pages.add(new DateTimePage(mContext, this));
-*/
-
         pages.add(new KatsunaWelcomePage(mContext, this));
         pages.add(new KatsunaAgeSetupPage(mContext, this));
         pages.add(new KatsunaGenderSetupPage(mContext, this));
         pages.add(new KatsunaHandSetupPage(mContext, this));
         pages.add(new KatsunaSizeSetupPage(mContext, this));
         pages.add(new KatsunaColorSetupPage(mContext, this));
-
+        pages.add(new KatsunaFirstHelpPage(mContext, this));
+        pages.add(new KatsunaSecondHelpPage(mContext, this));
+        pages.add(new KatsunaThirdHelpPage(mContext, this));
         pages.add(new FinishPage(mContext, this));
         return new PageList(pages.toArray(new SetupPage[pages.size()]));
     }

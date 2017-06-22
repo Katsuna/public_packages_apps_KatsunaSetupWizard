@@ -15,6 +15,20 @@
         <item name="android:textColor">@color/common_black54</item>
     </style>
 
+    <style name="katsuna_page_eula">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/common_black54</item>
+    </style>
+
+    <style name="katsuna_help_page_desc">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/common_black54</item>
+    </style>
+
     <style name="katsuna_error">
         <item name="android:textSize">@dimen/katsuna_page_title_desc_text_size</item>
         <item name="android:textStyle">normal</item>
