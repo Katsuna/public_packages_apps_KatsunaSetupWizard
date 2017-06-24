@@ -25,12 +25,14 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -43,9 +45,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.setupwizardlib.util.SystemBarHelper;
+import com.katsuna.commons.entities.ColorProfile;
 import com.katsuna.commons.entities.ColorProfileKey;
 import com.katsuna.commons.entities.UserProfile;
 import com.katsuna.commons.utils.ColorCalc;
+import com.katsuna.commons.utils.DrawUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
@@ -290,9 +294,23 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(this);
         int color1 = ColorCalc.getColor(this, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
         int color2 = ColorCalc.getColor(this, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
-        Shape.setRoundedBackground(mNextButton, color1);
-        Shape.setRoundedBorder(mPrevButton, color2);
-        mPrevButton.setTextColor(color2);
+        int whiteResId = ContextCompat.getColor(this, R.color.common_white);
+        int black87ResId = ContextCompat.getColor(this, R.color.common_black87);
+
+        if (profile.colorProfile == ColorProfile.CONTRAST) {
+            Shape.setRoundedBackground(mNextButton, color1);
+            mNextButton.setTextColor(color2);
+
+            Shape.setRoundedBackground(mPrevButton, color2);
+            Shape.setRoundedBorder(mPrevButton, color1);
+            mPrevButton.setTextColor(color1);
+        } else {
+            Shape.setRoundedBackground(mNextButton, color1);
+            mNextButton.setTextColor(black87ResId);
+
+            Shape.setRoundedBorder(mPrevButton, color2);
+            mPrevButton.setTextColor(color2);
+        }
     }
 
     @Override
