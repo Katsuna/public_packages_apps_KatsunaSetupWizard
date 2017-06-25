@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.katsuna.commons.entities.Preference;
 import com.katsuna.commons.entities.PreferenceKey;
 import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.utils.AlertUtils;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.setupwizard.R;
@@ -140,6 +142,14 @@ public class KatsunaAgeSetupPage extends SetupPage {
                     Log.e(TAG, e.toString());
                 }
             }
+
+            AlertUtils.createListAlert(getContext(), mDay, R.string.common_select_day,
+                    profile, AlertUtils.getDays(), null);
+            AlertUtils.createListAlert(getContext(), mMonth, R.string.common_select_month,
+                    profile, AlertUtils.getMonths(), null);
+            AlertUtils.createListAlert(getContext(), mYear, R.string.common_select_year,
+                    profile, AlertUtils.getYears(), null);
+
         }
 
         private String getDateString() {
