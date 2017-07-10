@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -81,6 +82,10 @@ public class KatsunaEulaPage extends SetupPage {
             } catch (Exception e) {
                 Log.e(TAG, e.toString());
             }
+
+            Settings.Secure.putString(mContext.getContentResolver(),
+                    Settings.Secure.DEFAULT_INPUT_METHOD,
+                    "com.katsuna.keyboard/.ui.SoftKeyboard");
 
             return super.doNextAction();
         } else {
