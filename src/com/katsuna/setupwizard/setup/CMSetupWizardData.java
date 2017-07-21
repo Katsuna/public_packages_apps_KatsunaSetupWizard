@@ -50,6 +50,7 @@ public class CMSetupWizardData extends AbstractSetupData {
         if (SetupWizardUtils.hasWifi(mContext)) {
             pages.add(new WifiSetupPage(mContext, this));
         }
+        pages.add(new KatsunaPermissionsPage(mContext, this));
         pages.add(new KatsunaWelcomePage(mContext, this));
         pages.add(new KatsunaAgeSetupPage(mContext, this));
         pages.add(new KatsunaGenderSetupPage(mContext, this));

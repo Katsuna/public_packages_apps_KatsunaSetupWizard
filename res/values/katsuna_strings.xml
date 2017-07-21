@@ -89,5 +89,9 @@
     <string name="notifications_desc">Swipe from the status bar \n towards the bottom of the \n
         screen to access the \n notifications and \n quick settings</string>
 
+    <string name="give_permissions">Give Permissions</string>
+
+    <string name="permissions_page">Permissions Page</string>
+
 
 </resources>
