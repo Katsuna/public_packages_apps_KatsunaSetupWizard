@@ -50,7 +50,6 @@ public class CMSetupWizardData extends AbstractSetupData {
         if (SetupWizardUtils.hasWifi(mContext)) {
             pages.add(new WifiSetupPage(mContext, this));
         }
-        pages.add(new KatsunaPermissionsPage(mContext, this));
         pages.add(new KatsunaWelcomePage(mContext, this));
         pages.add(new KatsunaAgeSetupPage(mContext, this));
         pages.add(new KatsunaGenderSetupPage(mContext, this));
@@ -60,6 +59,7 @@ public class CMSetupWizardData extends AbstractSetupData {
         pages.add(new KatsunaFirstHelpPage(mContext, this));
         pages.add(new KatsunaSecondHelpPage(mContext, this));
         pages.add(new KatsunaThirdHelpPage(mContext, this));
+        pages.add(new KatsunaPermissionsPage(mContext, this));
         pages.add(new FinishPage(mContext, this));
         return new PageList(pages.toArray(new SetupPage[pages.size()]));
     }

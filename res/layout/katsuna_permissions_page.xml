@@ -6,27 +6,114 @@
 
     <include layout="@layout/katsuna_logo_header" />
 
-    <TextView
-        style="@style/katsuna_page_title"
+    <RelativeLayout
+        android:id="@+id/page"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="@string/notifications" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/content_margin_left"
+        android:paddingRight="@dimen/content_margin_left">
 
-    <TextView
-        style="@style/katsuna_help_page_desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:text="@string/notifications_desc" />
+        <RelativeLayout
+            android:id="@+id/page_title_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/accept_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/give_permissions" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/katsuna_page_icon_margin_left"
+                android:src="@drawable/ic_vpn_key_28dp" />
+
+            <TextView
+                style="@style/katsuna_page_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+                android:text="@string/permissions" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/page_title_desc"
+            style="@style/katsuna_page_title_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/page_title_wrapper"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:text="@string/permissions_setup_desc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/page_title_desc"
+            android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
+            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/katsuna_permissions_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/permissions_label_services" />
+
+            <Button
+                android:id="@+id/grant_services"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/grant_to_services"
+                android:textAllCaps="false"
+                android:textSize="17sp" />
+
+            <TextView
+                style="@style/katsuna_permissions_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:text="@string/permissions_label_infoservices" />
+
+            <Button
+                android:id="@+id/grant_infoservices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/grant_to_infoservices"
+                android:textAllCaps="false"
+                android:textSize="17sp" />
+
+            <TextView
+                style="@style/katsuna_permissions_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
+                android:text="@string/permissions_label_weather" />
+
+            <Button
+                android:id="@+id/grant_weather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:stateListAnimator="@null"
+                android:text="@string/grant_to_weather"
+                android:textAllCaps="false"
+                android:textSize="17sp" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -313,6 +313,30 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         }
     }
 
+    public void applyProfileForPermissionsPage() {
+        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(this);
+        int color1 = ColorCalc.getColor(this, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
+        int color2 = ColorCalc.getColor(this, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
+        int whiteResId = ContextCompat.getColor(this, R.color.common_white);
+        int black87ResId = ContextCompat.getColor(this, R.color.common_black87);
+
+        if (profile.colorProfile == ColorProfile.CONTRAST) {
+            Shape.setRoundedBackground(mNextButton, color2);
+            Shape.setRoundedBorder(mNextButton, color1);
+            mNextButton.setTextColor(color1);
+
+            Shape.setRoundedBackground(mPrevButton, color2);
+            Shape.setRoundedBorder(mPrevButton, color1);
+            mPrevButton.setTextColor(color1);
+        } else {
+            Shape.setRoundedBorder(mNextButton, color2);
+            mNextButton.setTextColor(color2);
+
+            Shape.setRoundedBorder(mPrevButton, color2);
+            mPrevButton.setTextColor(color2);
+        }
+    }
+
     @Override
     public Page getPage(String key) {
         return mSetupData.getPage(key);

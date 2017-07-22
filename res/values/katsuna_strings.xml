@@ -89,9 +89,32 @@
     <string name="notifications_desc">Swipe from the status bar \n towards the bottom of the \n
         screen to access the \n notifications and \n quick settings</string>
 
-    <string name="give_permissions">Give Permissions</string>
+    <!-- title for permissions page -->
+    <string name="permissions">Permissions</string>
 
-    <string name="permissions_page">Permissions Page</string>
+    <!-- description for permissions page -->
+    <string name="permissions_setup_desc">For the best experience using your phone, we recommend to take some time
+    and grant permissions to the following apps.</string>
 
+    <!-- description label for katsuna services permission button -->
+    <string name="permissions_label_services">Suggestions and reminders</string>
+
+    <!-- description label for katsuna infoservices permission button -->
+    <string name="permissions_label_infoservices">Personalized User Experience</string>
+
+    <!-- description label for katsuna weather widget permission button -->
+    <string name="permissions_label_weather">Homescreen to Weather</string>
+
+    <!-- services grant button label -->
+    <string name="grant_to_services">Grant to Services</string>
+
+    <!-- infoservices grant button label -->
+    <string name="grant_to_infoservices">Grant to Info Services</string>
+
+    <!-- weather grant button label -->
+    <string name="grant_to_weather">Grant to Weather</string>
+
+    <!-- granted label -->
+    <string name="granted">Granted</string>
 
 </resources>
