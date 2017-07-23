@@ -16,6 +16,7 @@ import com.katsuna.commons.entities.PreferenceKey;
 import com.katsuna.commons.entities.SizeProfile;
 import com.katsuna.commons.entities.SizeProfileKey;
 import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.profile.Adjuster;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.SizeAdjuster;
@@ -70,6 +71,8 @@ public class KatsunaSizeSetupPage extends SetupPage {
         private RadioButton mSimple;
         private TextView mIthaca;
         private TextView mIthacaFull;
+        private View mFabSample;
+        private TextView mFabSampleText;
 
         @Override
         protected void initializePage() {
@@ -103,6 +106,9 @@ public class KatsunaSizeSetupPage extends SetupPage {
                     adjustTextSamples(sizeProfile);
                 }
             });
+
+            mFabSample = mRootView.findViewById(R.id.commom_size_sample_fab);
+            mFabSampleText = (TextView) mRootView.findViewById(R.id.commom_size_sample_fab_text);
         }
 
         @Override
@@ -138,6 +144,10 @@ public class KatsunaSizeSetupPage extends SetupPage {
             }
 
             adjustTextSamples(profile.opticalSizeProfile);
+
+            Adjuster adjuster = new Adjuster(getContext(), profile);
+            adjuster.adjustFabSampleSize(mFabSample, mFabSampleText);
+            adjuster.adjustFabSample(mFabSample, mFabSampleText);
         }
 
         private void adjustTextSamples(SizeProfile sizeProfile) {
@@ -146,6 +156,10 @@ public class KatsunaSizeSetupPage extends SetupPage {
 
             tvParams = SizeCalc.getOpticalParams(SizeProfileKey.BODY_1, sizeProfile);
             SizeAdjuster.adjustText(getContext(), mIthacaFull, tvParams);
+
+            UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(getContext());
+            Adjuster adjuster = new Adjuster(getContext(), profile);
+            adjuster.adjustFabSampleSize(mFabSample, mFabSampleText);
         }
     }
 
