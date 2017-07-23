@@ -74,7 +74,7 @@ falls deine Seele sie nicht vor dir aufbaut.</string>
   <!-- description label for katsuna infoservices permission button -->
   <string name="permissions_label_infoservices">Personalized User Experience</string>
   <!-- description label for katsuna weather widget permission button -->
-  <string name="permissions_label_weather">Homescreen to Weather</string>
+  <string name="permissions_label_weather">Homescreen Weather</string>
   <!-- services grant button label -->
   <string name="grant_to_services">Grant to Services</string>
   <!-- infoservices grant button label -->

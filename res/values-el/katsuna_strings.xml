@@ -77,7 +77,7 @@
   <!-- description label for katsuna infoservices permission button -->
   <string name="permissions_label_infoservices">Εξατομικευμένη εμπειρία</string>
   <!-- description label for katsuna weather widget permission button -->
-  <string name="permissions_label_weather">Αρχική οθόνη με πληροφορία καιρού</string>
+  <string name="permissions_label_weather">Homescreen Weather</string>
   <!-- services grant button label -->
   <string name="grant_to_services">Παραχώρηση δικαιωμάτων σε υπηρεσίες</string>
   <!-- infoservices grant button label -->
