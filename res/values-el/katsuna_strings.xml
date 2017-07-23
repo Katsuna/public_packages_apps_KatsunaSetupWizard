@@ -69,22 +69,21 @@
   <!-- Notifications label desc -->
   <string name="notifications_desc">Σύρετε από την μπάρα κατάστασης \n προς το κάτω μέρος της οθόνης για να αποκτήσετε πρόσβαση σε \n ειδοποιήσεις και γρήγορες ρυθμίσεις \n  \n</string>
   <!-- title for permissions page -->
-  <string name="permissions">Permissions</string>
+  <string name="permissions">Δικαιώματα</string>
   <!-- description for permissions page -->
-  <string name="permissions_setup_desc">For the best experience using your phone, we recommend to take some time
-    and grant permissions to the following apps.</string>
+  <string name="permissions_setup_desc">Για την καλύτερη εμπειρία χρήσης του τηλέφωνού σας, σας συνιστούμε να δώσετε λίγο χρόνο ώστε να παραχωρήσετε δικαιώματα για τις παρακάτω εφαρμογές.</string>
   <!-- description label for katsuna services permission button -->
-  <string name="permissions_label_services">Suggestions and reminders</string>
+  <string name="permissions_label_services">Προτάσεις και υπενθυμίσεις</string>
   <!-- description label for katsuna infoservices permission button -->
-  <string name="permissions_label_infoservices">Personalized User Experience</string>
+  <string name="permissions_label_infoservices">Εξατομικευμένη εμπειρία</string>
   <!-- description label for katsuna weather widget permission button -->
-  <string name="permissions_label_weather">Homescreen to Weather</string>
+  <string name="permissions_label_weather">Αρχική οθόνη με πληροφορία καιρού</string>
   <!-- services grant button label -->
-  <string name="grant_to_services">Grant to Services</string>
+  <string name="grant_to_services">Παραχώρηση δικαιωμάτων σε υπηρεσίες</string>
   <!-- infoservices grant button label -->
-  <string name="grant_to_infoservices">Grant to Info Services</string>
+  <string name="grant_to_infoservices">Παραχώρηση δικαιωμάτων σε υπηρεσίες πληροφορίας</string>
   <!-- weather grant button label -->
-  <string name="grant_to_weather">Grant to Weather</string>
+  <string name="grant_to_weather">Παραχώρηση δικαιωμάτων σε καιρό</string>
   <!-- granted label -->
-  <string name="granted">Granted</string>
+  <string name="granted">Παραχωρήθηκαν</string>
 </resources>
