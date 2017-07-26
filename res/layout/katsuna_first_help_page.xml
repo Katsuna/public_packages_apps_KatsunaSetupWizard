@@ -61,6 +61,8 @@
                 android:layout_below="@id/back_button"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@id/triangle"
+                android:ellipsize="end"
+                android:maxLines="3"
                 android:text="@string/back_button_desc" />
 
             <ImageView
@@ -68,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/back_button_desc"
-                android:layout_marginTop="46dp"
+                android:layout_marginTop="28dp"
                 android:src="@drawable/katsuna_circle" />
 
             <TextView
@@ -77,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/back_button_desc"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="24dp"
                 android:layout_toEndOf="@id/circle"
                 android:text="@string/home_button"
                 android:textColor="@color/common_black87"
@@ -91,6 +93,8 @@
                 android:layout_below="@id/home_button"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@id/circle"
+                android:ellipsize="end"
+                android:maxLines="5"
                 android:text="@string/home_button_desc" />
 
             <ImageView
@@ -98,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/home_button_desc"
-                android:layout_marginTop="46dp"
+                android:layout_marginTop="28dp"
                 android:src="@drawable/katsuna_square" />
 
             <TextView
@@ -107,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/home_button_desc"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="24dp"
                 android:layout_toEndOf="@id/square"
                 android:text="@string/recent_button"
                 android:textColor="@color/common_black87"
@@ -117,9 +121,11 @@
                 style="@style/katsuna_help_page_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/square"
+                android:layout_below="@id/recent_button"
                 android:layout_marginStart="16dp"
                 android:layout_toEndOf="@id/square"
+                android:ellipsize="end"
+                android:maxLines="4"
                 android:text="@string/recent_button_desc" />
 
 
