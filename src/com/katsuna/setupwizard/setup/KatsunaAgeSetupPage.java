@@ -144,11 +144,11 @@ public class KatsunaAgeSetupPage extends SetupPage {
             }
 
             AlertUtils.createListAlert(getContext(), mDay, null, R.string.common_select_day,
-                    profile, AlertUtils.getDays(), null);
+                    profile, AlertUtils.getDays(), null, null);
             AlertUtils.createListAlert(getContext(), mMonth, null, R.string.common_select_month,
-                    profile, AlertUtils.getMonths(), null);
+                    profile, AlertUtils.getMonths(), AlertUtils.getMonthsLabels(), null);
             AlertUtils.createListAlert(getContext(), mYear, "1955", R.string.common_select_year,
-                    profile, AlertUtils.getYears(), null);
+                    profile, AlertUtils.getYears(), null, null);
 
         }
 
