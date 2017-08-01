@@ -56,25 +56,23 @@
   <!-- Notifications label -->
   <string name="notifications">إعلامات</string>
   <!-- Notifications label desc -->
-  <string name="notifications_desc">Swipe from the status bar \n towards the bottom of the \n
-        screen to access the \n notifications and \n quick settings</string>
+  <string name="notifications_desc">اجذب من \n أعلى الشاشة \n الى أسفل \n لرؤية الاعلامات \n و الاعدادات السريعة</string>
   <!-- title for permissions page -->
-  <string name="permissions">Permissions</string>
+  <string name="permissions">الحقوق</string>
   <!-- description for permissions page -->
-  <string name="permissions_setup_desc">For the best experience using your phone, we recommend to take some time
-    and grant permissions to the following apps.</string>
+  <string name="permissions_setup_desc">للحصول على أفضل خدمة، نرجح أن تمنح الحقوق المطلوبة للتطبيقات الآتية.</string>
   <!-- description label for katsuna services permission button -->
-  <string name="permissions_label_services">Suggestions and reminders</string>
+  <string name="permissions_label_services">اقتراحات و تذكيرات</string>
   <!-- description label for katsuna infoservices permission button -->
-  <string name="permissions_label_infoservices">Personalized User Experience</string>
+  <string name="permissions_label_infoservices">تجربة شخصية للمستخدم</string>
   <!-- description label for katsuna weather widget permission button -->
-  <string name="permissions_label_weather">Homescreen Weather</string>
+  <string name="permissions_label_weather">الطقس على الشاشة الرئيسية</string>
   <!-- services grant button label -->
-  <string name="grant_to_services">Grant to Services</string>
+  <string name="grant_to_services">منح للخدمات</string>
   <!-- infoservices grant button label -->
-  <string name="grant_to_infoservices">Grant to Info Services</string>
+  <string name="grant_to_infoservices">منح لخدمات المعلومات</string>
   <!-- weather grant button label -->
-  <string name="grant_to_weather">Grant to Weather</string>
+  <string name="grant_to_weather">منح للطقس</string>
   <!-- granted label -->
   <string name="granted">Granted</string>
 </resources>

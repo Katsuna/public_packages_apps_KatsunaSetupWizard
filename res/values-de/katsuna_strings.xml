@@ -10,7 +10,7 @@
   <!-- Label for gender setting -->
   <string name="gender_setup_desc">Geschlecht eingeben</string>
   <!-- Hand of use label -->
-  <string name="hand_setup">Hand of use</string>
+  <string name="hand_setup">Hand der Nutzung</string>
   <!-- Hand of use description label -->
   <string name="hand_setup_desc">Wählen Sie Ihre bevorzugte Hand des Eingangs</string>
   <!-- Optical size setup decription label -->
@@ -50,7 +50,7 @@ falls deine Seele sie nicht vor dir aufbaut.</string>
   <!-- Home button label -->
   <string name="home_button">Home-Taste</string>
   <!-- Home button desc label -->
-  <string name="home_button_desc">Will take you to home screen \nLong Press to call Assistant</string>
+  <string name="home_button_desc">Zum Home-Bildschirm \n lang gedrückt halten für Hilfe</string>
   <!-- Recent button label -->
   <string name="recent_button">Aktuell-Anwendungen Taste</string>
   <!-- Recent button desc label -->
@@ -58,29 +58,27 @@ falls deine Seele sie nicht vor dir aufbaut.</string>
   <!-- Navigate label -->
   <string name="navigate">Navigieren</string>
   <!-- Navigate label desc -->
-  <string name="navigate_desc">Swipe from the right to the left \n or reversely to navigate \n between screens</string>
+  <string name="navigate_desc">Wischen Sie von rechts nach links \n oder umgekehrt \n um zwischen Bildschirmen zu navigieren</string>
   <!-- Notifications label -->
   <string name="notifications">Benachrichtigungen</string>
   <!-- Notifications label desc -->
-  <string name="notifications_desc">Swipe from the status bar \n towards the bottom of the \n
-        screen to access the \n notifications and \n quick settings</string>
+  <string name="notifications_desc">Wischen von Statusleiste  \n nach unteren Displayrand \n um die Benachrichtigungen und die Schnelleinstellungen zu erreichen.</string>
   <!-- title for permissions page -->
-  <string name="permissions">Permissions</string>
+  <string name="permissions">Berechtigungen</string>
   <!-- description for permissions page -->
-  <string name="permissions_setup_desc">For the best experience using your phone, we recommend to take some time
-    and grant permissions to the following apps.</string>
+  <string name="permissions_setup_desc">Für die optimale Verwendung des Telefons empfehlen wir einige Zeit zu dauern, und  Berechtigungen für die folgenden Anwendungen zu erteilen</string>
   <!-- description label for katsuna services permission button -->
-  <string name="permissions_label_services">Suggestions and reminders</string>
+  <string name="permissions_label_services">Anregungen und Erinnerungen</string>
   <!-- description label for katsuna infoservices permission button -->
-  <string name="permissions_label_infoservices">Personalized User Experience</string>
+  <string name="permissions_label_infoservices">Personalisierte Benutzererfahrung</string>
   <!-- description label for katsuna weather widget permission button -->
-  <string name="permissions_label_weather">Homescreen Weather</string>
+  <string name="permissions_label_weather">Startbildschirm Wetter</string>
   <!-- services grant button label -->
-  <string name="grant_to_services">Grant to Services</string>
+  <string name="grant_to_services">Berechtigungen den Dienstleistungen erteilen</string>
   <!-- infoservices grant button label -->
-  <string name="grant_to_infoservices">Grant to Info Services</string>
+  <string name="grant_to_infoservices">Berechtigung den Info Dienstleistungen erteilen</string>
   <!-- weather grant button label -->
-  <string name="grant_to_weather">Grant to Weather</string>
+  <string name="grant_to_weather">Berechtigungen dem Wetter erteilen</string>
   <!-- granted label -->
-  <string name="granted">Granted</string>
+  <string name="granted">Berechtigungen erteilt</string>
 </resources>
