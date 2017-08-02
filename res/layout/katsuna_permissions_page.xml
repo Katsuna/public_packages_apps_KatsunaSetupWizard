@@ -37,13 +37,13 @@
 
         <TextView
             android:id="@+id/page_title_desc"
-            style="@style/katsuna_page_title_desc"
+            style="@style/katsuna_page_title_desc_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/page_title_wrapper"
             android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
             android:ellipsize="end"
-            android:maxLines="4"
+            android:maxLines="6"
             android:text="@string/permissions_setup_desc" />
 
         <LinearLayout
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/page_title_desc"
             android:layout_marginStart="@dimen/katsuna_page_title_margin_left"
-            android:layout_marginTop="@dimen/katsuna_page_setting_margin_top"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
 
             <TextView
