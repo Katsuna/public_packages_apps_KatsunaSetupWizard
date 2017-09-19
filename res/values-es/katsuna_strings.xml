@@ -74,5 +74,5 @@
   <!-- weather grant button label -->
   <string name="grant_to_weather">Grant to Weather</string>
   <!-- granted label -->
-  <string name="granted">Granted</string>
+  <string name="granted">Permitido</string>
 </resources>
