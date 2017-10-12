@@ -68,11 +68,11 @@
   <!-- description label for katsuna weather widget permission button -->
   <string name="permissions_label_weather">Tiempo en pantalla de inicio</string>
   <!-- services grant button label -->
-  <string name="grant_to_services">Grant to Services</string>
+  <string name="grant_to_services">Conceder a los servicios</string>
   <!-- infoservices grant button label -->
-  <string name="grant_to_infoservices">Grant to Info Services</string>
+  <string name="grant_to_infoservices">Conceder a los servicios de informacion</string>
   <!-- weather grant button label -->
-  <string name="grant_to_weather">Grant to Weather</string>
+  <string name="grant_to_weather">Conceder al tiempo</string>
   <!-- granted label -->
   <string name="granted">Permitido</string>
 </resources>
