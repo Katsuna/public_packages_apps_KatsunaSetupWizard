@@ -20,6 +20,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     libphonenumber
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-cardview
 LOCAL_STATIC_JAVA_LIBRARIES += android-support-design
+LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-recyclerview
 
 LOCAL_JAVA_LIBRARIES := telephony-common
 
@@ -28,6 +29,7 @@ LOCAL_RESOURCE_DIR += frameworks/support/v7/appcompat/res \
     frameworks/KatsunaCommon/commons/src/main/res
 LOCAL_RESOURCE_DIR += frameworks/support/v7/cardview/res
 LOCAL_RESOURCE_DIR += frameworks/support/design/res
+LOCAL_RESOURCE_DIR += frameworks/support/v7/recyclerview/res
 
 LOCAL_STATIC_JAVA_AAR_LIBRARIES := roundedimageview
 
