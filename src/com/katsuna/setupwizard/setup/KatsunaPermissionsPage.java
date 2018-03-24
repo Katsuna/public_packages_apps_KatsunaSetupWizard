@@ -26,11 +26,9 @@ import com.katsuna.setupwizard.ui.SetupWizardActivity;
 
 public class KatsunaPermissionsPage extends SetupPage {
 
-    public static final int REQUEST_FOR_PERMISSIONS_SERVICES = 101;
     public static final int REQUEST_FOR_PERMISSIONS_INFOSERVICES = 102;
     public static final int REQUEST_FOR_PERMISSIONS_WEATHER = 103;
     public static final String TAG = "KatsunaPermissionsPage";
-    public static boolean PERMISSION_SERVICES_GRANTED = false;
     public static boolean PERMISSION_INFOSERVICES_GRANTED = false;
     public static boolean PERMISSION_WEATHER_GRANTED = false;
     private LoadingFragment mLoadingFragment;
@@ -82,23 +80,11 @@ public class KatsunaPermissionsPage extends SetupPage {
 
     public static class KatsunaPermissionsFragment extends SetupPageFragment {
 
-        private Button mGrantToServicesButton;
         private Button mGrantToInfoServicesButton;
         private Button mGrantToWeatherButton;
 
         @Override
         protected void initializePage() {
-            mGrantToServicesButton = (Button) mRootView.findViewById(R.id.grant_services);
-            mGrantToServicesButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (PERMISSION_SERVICES_GRANTED) return;
-
-                    startActivity(KatsunaIntents.PERMISSIONS_SERVICES,
-                            KatsunaPermissionsPage.REQUEST_FOR_PERMISSIONS_SERVICES);
-                }
-            });
-
             mGrantToInfoServicesButton = (Button) mRootView.findViewById(R.id.grant_infoservices);
             mGrantToInfoServicesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -128,7 +114,7 @@ public class KatsunaPermissionsPage extends SetupPage {
         @Override
         public void onResume() {
             super.onResume();
-            if (PERMISSION_SERVICES_GRANTED && PERMISSION_INFOSERVICES_GRANTED &&
+            if (PERMISSION_INFOSERVICES_GRANTED &&
                     PERMISSION_WEATHER_GRANTED)
             {
                 adjustActivityButtons(true);
@@ -155,11 +141,6 @@ public class KatsunaPermissionsPage extends SetupPage {
         private void adjustProfile() {
             Context context = getContext();
             UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(context);
-            if (PERMISSION_SERVICES_GRANTED) {
-                adjustButtonDisabled(mGrantToServicesButton, profile);
-            } else {
-                adjustButtonEnabled(mGrantToServicesButton, profile);
-            }
             if (PERMISSION_INFOSERVICES_GRANTED) {
                 adjustButtonDisabled(mGrantToInfoServicesButton, profile);
             } else {
@@ -214,15 +195,7 @@ public class KatsunaPermissionsPage extends SetupPage {
             //super.onActivityResult(requestCode, resultCode, data);
             if (resultCode == Activity.RESULT_OK) {
                 boolean permissionsGranted = data.getBooleanExtra("permissionsGranted", true);
-                if (requestCode == REQUEST_FOR_PERMISSIONS_SERVICES) {
-                    Log.d(TAG, "onActivityResult permissionsGranted for services");
-                    if (permissionsGranted) {
-                        Context context = getContext();
-                        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(context);
-                        adjustButtonDisabled(mGrantToServicesButton, profile);
-                        PERMISSION_SERVICES_GRANTED = true;
-                    }
-                } else if (requestCode == REQUEST_FOR_PERMISSIONS_INFOSERVICES) {
+                if (requestCode == REQUEST_FOR_PERMISSIONS_INFOSERVICES) {
                     Log.d(TAG, "onActivityResult permissionsGranted for infoservices");
                     if (permissionsGranted) {
                         Context context = getContext();
@@ -240,7 +213,7 @@ public class KatsunaPermissionsPage extends SetupPage {
                     }
                 }
 
-                if (PERMISSION_SERVICES_GRANTED && PERMISSION_INFOSERVICES_GRANTED &&
+                if (PERMISSION_INFOSERVICES_GRANTED &&
                         PERMISSION_WEATHER_GRANTED)
                 {
                     adjustActivityButtons(true);
