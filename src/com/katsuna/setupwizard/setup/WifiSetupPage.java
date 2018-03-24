@@ -222,11 +222,8 @@ public class WifiSetupPage extends SetupPage {
     private void launchWifiSetup() {
         SetupWizardUtils.tryEnablingWifi(mContext);
         Intent intent = new Intent(SetupWizardApp.ACTION_SETUP_WIFI);
-        intent.putExtra(SetupWizardApp.EXTRA_FIRST_RUN, true);
-        intent.putExtra(SetupWizardApp.EXTRA_ALLOW_SKIP, true);
-        intent.putExtra(SetupWizardApp.EXTRA_USE_IMMERSIVE, true);
-        intent.putExtra(SetupWizardApp.EXTRA_THEME, SetupWizardApp.EXTRA_MATERIAL_LIGHT);
-        intent.putExtra(SetupWizardApp.EXTRA_AUTO_FINISH, false);
+        intent.putExtra(SetupWizardApp.EXTRA_SHOW_BUTTON_BAR, true);
+        intent.putExtra(SetupWizardApp.EXTRA_SET_BACK_TEXT , false);
         ActivityOptions options =
                 ActivityOptions.makeCustomAnimation(mContext,
                         android.R.anim.fade_in,

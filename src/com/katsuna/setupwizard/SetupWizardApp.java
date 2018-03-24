@@ -37,7 +37,8 @@ public class SetupWizardApp extends Application {
     public static final String ACCOUNT_TYPE_KATSUNA = "com.katsuna";
     public static final String ACCOUNT_TYPE_GMS = "com.google";
 
-    public static final String ACTION_SETUP_WIFI = "com.android.net.wifi.SETUP_WIFI_NETWORK";
+    public static final String ACTION_SETUP_WIFI = "android.net.wifi.PICK_WIFI_NETWORK";
+
     public static final String ACTION_VIEW_LEGAL = "katsuna.intent.action.LEGALESE";
 
     public static final String ACTION_SETUP_FINGERPRINT = "android.settings.FINGERPRINT_SETUP";
@@ -47,6 +48,7 @@ public class SetupWizardApp extends Application {
     public static final String EXTRA_ALLOW_SKIP = "allowSkip";
     public static final String EXTRA_AUTO_FINISH = "wifi_auto_finish_on_connect";
     public static final String EXTRA_SHOW_BUTTON_BAR = "extra_prefs_show_button_bar";
+    public static final String EXTRA_SET_BACK_TEXT = "extra_prefs_set_back_text";
     public static final String EXTRA_USE_IMMERSIVE = "useImmersiveMode";
     public static final String EXTRA_THEME = "theme";
     public static final String EXTRA_MATERIAL_LIGHT = "material_light";
