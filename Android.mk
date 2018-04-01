@@ -16,29 +16,30 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
+    android-support-v7-cardview \
+    android-support-v7-recyclerview \
     android-support-v13 \
-    libphonenumber
-LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-cardview
-LOCAL_STATIC_JAVA_LIBRARIES += android-support-design
-LOCAL_STATIC_JAVA_LIBRARIES += android-support-v7-recyclerview
+    android-support-design
 
 LOCAL_JAVA_LIBRARIES := telephony-common
 
-LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res)
-LOCAL_RESOURCE_DIR += frameworks/support/v7/appcompat/res \
-    frameworks/KatsunaCommon/commons/src/main/res
-LOCAL_RESOURCE_DIR += frameworks/support/v7/cardview/res
-LOCAL_RESOURCE_DIR += frameworks/support/design/res
-LOCAL_RESOURCE_DIR += frameworks/support/v7/recyclerview/res
+LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, res) \
+    frameworks/support/v7/appcompat/res \
+    frameworks/support/v7/cardview/res \
+    frameworks/support/v7/recyclerview/res \
+    frameworks/support/design/res
 
 LOCAL_STATIC_JAVA_AAR_LIBRARIES := roundedimageview
 
 # Include KatsunaCommon into this app
 LOCAL_REQUIRED_MODULES := KatsunaCommon
 LOCAL_STATIC_JAVA_LIBRARIES += KatsunaCommon
+# Include KatsunaCommon resources
+LOCAL_RESOURCE_DIR += frameworks/KatsunaCommon/commons/src/main/res
 
 LOCAL_AAPT_FLAGS := --auto-add-overlay \
-    --extra-packages android.support.v17.preference:android.support.v7.appcompat \
+    --extra-packages android.support.v7.appcompat \
+    --extra-packages android.support.v17.preference \
     --extra-packages com.katsuna.commons \
     --extra-packages com.makeramen.roundedimageview
 
