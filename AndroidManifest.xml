@@ -18,7 +18,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
           package="com.katsuna.setupwizard"
-          android:versionCode="4"
+          android:versionCode="5"
           android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
@@ -43,7 +43,7 @@
 
     <protected-broadcast android:name="com.katsuna.setupwizard.SETUP_FINISHED" />
 
-    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
+    <uses-sdk android:minSdkVersion="27" android:targetSdkVersion="27" />
 
     <application android:label="@string/app_name"
                  android:theme="@style/Theme.Setup"
