@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -75,11 +76,9 @@ public class CMSetupWizardData extends AbstractSetupData {
         } else if (intent.getAction()
                 .equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
             showHideMobileDataPage();
-            showHideAccountPages();
         } else if (intent.getAction()
                 .equals(TelephonyIntents.ACTION_ANY_DATA_CONNECTION_STATE_CHANGED)) {
             showHideMobileDataPage();
-            showHideAccountPages();
         } else if (intent.getAction().equals(Intent.ACTION_TIMEZONE_CHANGED) ||
                 intent.getAction().equals(TelephonyIntents.ACTION_NETWORK_SET_TIMEZONE)) {
             mTimeZoneSet = true;
@@ -88,15 +87,6 @@ public class CMSetupWizardData extends AbstractSetupData {
                 intent.getAction().equals(TelephonyIntents.ACTION_NETWORK_SET_TIME)) {
             mTimeSet = true;
             showHideDateTimePage();
-        }
-    }
-
-    private void showHideAccountPages() {
-        boolean isConnected = SetupWizardUtils.isNetworkConnected(mContext);
-        CyanogenServicesPage cyanogenServicesPage =
-                (CyanogenServicesPage) getPage(CyanogenServicesPage.TAG);
-        if (cyanogenServicesPage != null) {
-            cyanogenServicesPage.setHidden(!isConnected);
         }
     }
 

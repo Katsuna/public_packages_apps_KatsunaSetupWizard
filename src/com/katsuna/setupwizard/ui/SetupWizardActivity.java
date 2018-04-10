@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2018 Katsuna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +56,6 @@ import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
 import com.katsuna.setupwizard.setup.CMSetupWizardData;
-import com.katsuna.setupwizard.setup.GmsAccountPage;
 import com.katsuna.setupwizard.setup.Page;
 import com.katsuna.setupwizard.setup.SetupDataCallbacks;
 import com.katsuna.setupwizard.util.EnableAccessibilityController;
@@ -138,26 +138,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         }
         if (savedInstanceState != null && savedInstanceState.containsKey("data")) {
             mSetupData.load(savedInstanceState.getBundle("data"));
-        }
-
-        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if (sharedPreferences.contains(KEY_LAST_PAGE_TAG)) {
-            final String lastPage = sharedPreferences.getString(KEY_LAST_PAGE_TAG,
-                    mSetupData.getCurrentPage().getKey());
-            final boolean backupEnabled = (Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.BACKUP_AUTO_RESTORE, 0) == 1) ||
-                    (Settings.Secure.getInt(getContentResolver(),
-                            Settings.Secure.BACKUP_ENABLED, 0) == 1);
-            if (TextUtils.equals(lastPage, GmsAccountPage.TAG) && backupEnabled) {
-                // We probably already restored, skip ahead!
-                mSetupData.setCurrentPage(mSetupData.getNextPage(lastPage).getKey());
-            } else {
-                // else just restore
-                mSetupData.setCurrentPage(sharedPreferences.getString(KEY_LAST_PAGE_TAG,
-                        mSetupData.getCurrentPage().getKey()));
-            }
-            Page page = mSetupData.getCurrentPage();
-            page.doLoadAction(getFragmentManager(), Page.ACTION_NEXT);
         }
 
         mEnableAccessibilityController =
@@ -465,7 +445,6 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 if (mEnableAccessibilityController != null) {
                     mEnableAccessibilityController.onDestroy();
                 }
-                SetupWizardUtils.disableGMSSetupWizard(SetupWizardActivity.this);
                 final WallpaperManager wallpaperManager =
                         WallpaperManager.getInstance(SetupWizardActivity.this);
                 wallpaperManager.forgetLoadedWallpaper();

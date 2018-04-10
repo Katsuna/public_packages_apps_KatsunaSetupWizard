@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2018 Katsuna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +36,6 @@ public class SetupWizardApp extends Application {
     public static final String ACTION_SETUP_FINISHED = "com.katsuna.setupwizard.SETUP_FINISHED";
 
     public static final String ACCOUNT_TYPE_KATSUNA = "com.katsuna";
-    public static final String ACCOUNT_TYPE_GMS = "com.google";
 
     public static final String ACTION_SETUP_WIFI = "android.net.wifi.PICK_WIFI_NETWORK";
 
@@ -63,14 +63,11 @@ public class SetupWizardApp extends Application {
     public static final String KEY_DETECT_CAPTIVE_PORTAL = "captive_portal_detection_enabled";
 
     public static final int REQUEST_CODE_SETUP_WIFI = 0;
-    public static final int REQUEST_CODE_SETUP_GMS= 1;
-    public static final int REQUEST_CODE_RESTORE_GMS= 2;
     public static final int REQUEST_CODE_SETUP_KATSUNA= 3;
     public static final int REQUEST_CODE_SETUP_CAPTIVE_PORTAL= 4;
     public static final int REQUEST_CODE_SETUP_BLUETOOTH= 5;
     public static final int REQUEST_CODE_UNLOCK = 6;
     public static final int REQUEST_CODE_SETUP_FINGERPRINT = 7;
-    public static final int REQUEST_CODE_VENDOR_SETUP_GMS = 8;
     public static final int REQUEST_CODE_SETUP_LOCKSCREEN = 9;
 
     public static final int RADIO_READY_TIMEOUT = 10 * 1000;
@@ -107,7 +104,6 @@ public class SetupWizardApp extends Application {
                         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
                         Settings.Secure.putInt(getContentResolver(),
                                 Settings.Secure.USER_SETUP_COMPLETE, 1);
-                        SetupWizardUtils.disableGMSSetupWizard(SetupWizardApp.this);
                         SetupWizardUtils.disableSetupWizard(SetupWizardApp.this);
                     }
                 };

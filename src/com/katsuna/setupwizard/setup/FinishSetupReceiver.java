@@ -23,7 +23,6 @@ public class FinishSetupReceiver extends BroadcastReceiver {
                 StatusBarManager.DISABLE_NONE);
         Settings.Global.putInt(context.getContentResolver(),
                 SetupWizardApp.KEY_DETECT_CAPTIVE_PORTAL, 1);
-        SetupWizardUtils.disableGMSSetupWizard(context);
         SetupWizardUtils.disableSetupWizard(context);
     }
 }

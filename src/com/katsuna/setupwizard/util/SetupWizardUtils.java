@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2018 Katsuna
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,9 +42,6 @@ import com.katsuna.setupwizard.SetupWizardApp;
 public class SetupWizardUtils {
 
     private static final String TAG = SetupWizardUtils.class.getSimpleName();
-
-    public static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
-    private static final String MODMOD_PACKAGE = "com.cyanogen.ambient.core";
 
     private SetupWizardUtils(){}
 
@@ -186,36 +184,6 @@ public class SetupWizardUtils {
                 "com.katsuna.setupwizard.setup.FinishSetupReceiver");
     }
 
-    public static void disableGMSSetupWizard(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager()
-                    .getPackageInfo(GOOGLE_SETUPWIZARD_PACKAGE,
-                            PackageManager.GET_ACTIVITIES |
-                                    PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES);
-            disableComponentArray(context, packageInfo.activities);
-            disableComponentArray(context, packageInfo.services);
-            disableComponentArray(context, packageInfo.receivers);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "Unable to disable GMS");
-        }
-    }
-
-    public static boolean enableGMSSetupWizard(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager()
-                    .getPackageInfo(GOOGLE_SETUPWIZARD_PACKAGE,
-                            PackageManager.GET_ACTIVITIES |
-                                    PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES);
-            enableComponentArray(context, packageInfo.activities);
-            enableComponentArray(context, packageInfo.services);
-            enableComponentArray(context, packageInfo.receivers);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "Unable to enable GMS");
-            return false;
-        }
-    }
-
     private static void disableComponentArray(Context context, ComponentInfo[] components) {
         if(components != null) {
             ComponentInfo[] componentInfos = components;
@@ -257,8 +225,4 @@ public class SetupWizardUtils {
                 context.getSystemService(Context.FINGERPRINT_SERVICE);
         return fingerprintManager.isHardwareDetected();
     }
-
-    public static final ComponentName mTvAddAccessorySettingsActivity =
-            new ComponentName("com.android.tv.settings",
-                    "com.android.tv.settings.accessories.AddAccessoryActivity");
 }
