@@ -55,7 +55,7 @@ import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.SetupWizardApp;
-import com.katsuna.setupwizard.setup.CMSetupWizardData;
+import com.katsuna.setupwizard.setup.SetupWizardData;
 import com.katsuna.setupwizard.setup.Page;
 import com.katsuna.setupwizard.setup.SetupDataCallbacks;
 import com.katsuna.setupwizard.util.EnableAccessibilityController;
@@ -79,7 +79,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
 
     private EnableAccessibilityController mEnableAccessibilityController;
 
-    private CMSetupWizardData mSetupData;
+    private SetupWizardData mSetupData;
 
     private final Handler mHandler = new Handler();
 
@@ -107,9 +107,9 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
         mButtonBar = findViewById(R.id.button_bar);
         mFinishingProgressBar = (ProgressBar)findViewById(R.id.finishing_bar);
         ((SetupWizardApp)getApplicationContext()).disableStatusBar();
-        mSetupData = (CMSetupWizardData)getLastNonConfigurationInstance();
+        mSetupData = (SetupWizardData)getLastNonConfigurationInstance();
         if (mSetupData == null) {
-            mSetupData = new CMSetupWizardData(getApplicationContext());
+            mSetupData = new SetupWizardData(getApplicationContext());
         }
         mNextButton = (Button) findViewById(R.id.next_button);
         mPrevButton = (Button) findViewById(R.id.prev_button);
