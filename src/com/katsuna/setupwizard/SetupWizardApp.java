@@ -145,7 +145,8 @@ public class SetupWizardApp extends Application {
                 StatusBarManager.DISABLE_NOTIFICATION_TICKER |
                 StatusBarManager.DISABLE_RECENT |
                 StatusBarManager.DISABLE_HOME |
-                StatusBarManager.DISABLE_SEARCH);
+                StatusBarManager.DISABLE_SEARCH |
+                StatusBarManager.DISABLE_CLOCK);
     }
 
     public void enableStatusBar() {
