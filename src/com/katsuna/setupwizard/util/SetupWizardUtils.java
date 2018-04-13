@@ -43,6 +43,8 @@ public class SetupWizardUtils {
 
     private static final String TAG = SetupWizardUtils.class.getSimpleName();
 
+    public static final String GOOGLE_SETUPWIZARD_PACKAGE = "com.google.android.setupwizard";
+
     private SetupWizardUtils(){}
 
     public static void tryEnablingWifi(Context context) {
@@ -182,6 +184,20 @@ public class SetupWizardUtils {
                 "com.katsuna.setupwizard.ui.SetupWizardActivity");
         disableComponent(context, context.getPackageName(),
                 "com.katsuna.setupwizard.setup.FinishSetupReceiver");
+    }
+
+    public static void disableGMSSetupWizard(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(GOOGLE_SETUPWIZARD_PACKAGE,
+                            PackageManager.GET_ACTIVITIES |
+                                    PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES);
+            disableComponentArray(context, packageInfo.activities);
+            disableComponentArray(context, packageInfo.services);
+            disableComponentArray(context, packageInfo.receivers);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Unable to disable GMS");
+        }
     }
 
     private static void disableComponentArray(Context context, ComponentInfo[] components) {

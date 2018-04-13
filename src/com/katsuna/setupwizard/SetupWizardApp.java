@@ -104,6 +104,7 @@ public class SetupWizardApp extends Application {
                         Settings.Global.putInt(getContentResolver(), Settings.Global.DEVICE_PROVISIONED, 1);
                         Settings.Secure.putInt(getContentResolver(),
                                 Settings.Secure.USER_SETUP_COMPLETE, 1);
+                        SetupWizardUtils.disableGMSSetupWizard(SetupWizardApp.this);
                         SetupWizardUtils.disableSetupWizard(SetupWizardApp.this);
                     }
                 };

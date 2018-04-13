@@ -445,6 +445,7 @@ public class SetupWizardActivity extends Activity implements SetupDataCallbacks 
                 if (mEnableAccessibilityController != null) {
                     mEnableAccessibilityController.onDestroy();
                 }
+                SetupWizardUtils.disableGMSSetupWizard(SetupWizardActivity.this);
                 final WallpaperManager wallpaperManager =
                         WallpaperManager.getInstance(SetupWizardActivity.this);
                 wallpaperManager.forgetLoadedWallpaper();
