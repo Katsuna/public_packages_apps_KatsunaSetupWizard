@@ -148,7 +148,7 @@ public class WelcomePage extends SetupPage {
         private final Runnable mUpdateLocale = new Runnable() {
             public void run() {
                 if (mCurrentLocale != null) {
-                    mLanguagePicker.setEnabled(false);
+                    //mLanguagePicker.setEnabled(false);
 
                     mEnglishLocale = new Locale("en","US");
                     if (mCurrentLocale.getLanguage().equals(mEnglishLocale.getLanguage())) {
@@ -286,7 +286,7 @@ public class WelcomePage extends SetupPage {
 
             @Override
             protected void onPostExecute(Locale simLocale) {
-                if (simLocale != null && !simLocale.equals(mCurrentLocale)) {
+                if (simLocale != null) {
                     if (!mIgnoreSimLocale && !isDetached()) {
                         String label = getString(R.string.sim_locale_changed,
                                 simLocale.getDisplayName());
