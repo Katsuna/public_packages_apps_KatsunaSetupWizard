@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.katsuna.commons.entities.Preference;
 import com.katsuna.commons.entities.PreferenceKey;
@@ -21,6 +20,7 @@ import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.ui.SetupWizardActivity;
 
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -136,7 +136,8 @@ public class KatsunaAgeSetupPage extends SetupPage {
 
 
                     mYear.setText(String.valueOf(year));
-                    mMonth.setText(String.valueOf(month));
+                    mMonth.setText(new DateFormatSymbols().getMonths()[month-1]);
+                    mMonth.setTag(String.valueOf(month));
                     mDay.setText(String.valueOf(day));
                 } catch (ParseException e) {
                     Log.e(TAG, e.toString());
@@ -148,16 +149,34 @@ public class KatsunaAgeSetupPage extends SetupPage {
             String titleYear = getString(R.string.common_select_year);
             AlertUtils.createListAlert(getContext(), mDay, null, titleDay,
                     profile, AlertUtils.getDays(), null, null);
-            AlertUtils.createListAlert(getContext(), mMonth, null, titleMonth,
-                    profile, AlertUtils.getMonths(), AlertUtils.getMonthsLabels(), null);
+
+            createMonthAlertList(titleMonth, profile);
+
             AlertUtils.createListAlert(getContext(), mYear, "1955", titleYear,
                     profile, AlertUtils.getYears(), null, null);
+        }
 
+        private void createMonthAlertList(String titleMonth, UserProfile profile) {
+            AlertUtils.createListAlert(getContext(), mMonth, null, titleMonth,
+                    profile, AlertUtils.getMonths(), AlertUtils.getMonthsLabels(), new AlertUtils.Callback() {
+                        @Override
+                        public void onListItemSelected() {
+                            String month = mMonth.getText().toString();
+                            mMonth.setTag(month);
+                            mMonth.setText(new DateFormatSymbols()
+                                    .getMonths()[Integer.parseInt(month)-1]);
+
+                            createMonthAlertList(titleMonth, profile);
+                        }
+                    });
         }
 
         private String getDateString() {
             String day = mDay.getText().toString();
-            String month = mMonth.getText().toString();
+            String month = "";
+            if (mMonth.getTag() != null) {
+                month = mMonth.getTag().toString();
+            }
             String year = mYear.getText().toString();
             return year + "-" + month + "-" + day;
         }

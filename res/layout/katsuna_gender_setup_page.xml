@@ -107,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:hint="@string/common_gender_hint"
+                android:singleLine="true"
                 android:visibility="gone" />
 
         </LinearLayout>

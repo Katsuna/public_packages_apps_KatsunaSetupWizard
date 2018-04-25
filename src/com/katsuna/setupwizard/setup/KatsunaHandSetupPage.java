@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import com.katsuna.commons.entities.Preference;
 import com.katsuna.commons.entities.PreferenceKey;
 import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.utils.ColorAdjusterV2;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.setupwizard.R;
@@ -107,6 +108,11 @@ public class KatsunaHandSetupPage extends SetupPage {
             } else {
                 mLeftHand.setChecked(true);
             }
+
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mRightHand, 2,
+                    false);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mLeftHand, 2,
+                    false);
         }
     }
 

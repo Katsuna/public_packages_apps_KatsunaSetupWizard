@@ -17,6 +17,7 @@ import com.katsuna.commons.entities.SizeProfile;
 import com.katsuna.commons.entities.SizeProfileKey;
 import com.katsuna.commons.entities.UserProfile;
 import com.katsuna.commons.profile.Adjuster;
+import com.katsuna.commons.utils.ColorAdjusterV2;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.SizeAdjuster;
@@ -148,6 +149,14 @@ public class KatsunaSizeSetupPage extends SetupPage {
             Adjuster adjuster = new Adjuster(getContext(), profile);
             adjuster.adjustFabSampleSize(mFabSample, mFabSampleText);
             adjuster.adjustFabSample(mFabSample, mFabSampleText);
+
+
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mAdvanced, 1,
+                    false);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mIntermediate, 1,
+                    false);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mSimple, 1,
+                    false);
         }
 
         private void adjustTextSamples(SizeProfile sizeProfile) {

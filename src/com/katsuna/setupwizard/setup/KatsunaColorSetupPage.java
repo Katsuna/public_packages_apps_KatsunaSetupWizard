@@ -12,6 +12,7 @@ import com.katsuna.commons.entities.ColorProfile;
 import com.katsuna.commons.entities.Preference;
 import com.katsuna.commons.entities.PreferenceKey;
 import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.utils.ColorAdjusterV2;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.setupwizard.R;
@@ -96,6 +97,7 @@ public class KatsunaColorSetupPage extends SetupPage {
                     }
                     PreferenceUtils.updatePreference(getContext(), preference);
                     ((SetupWizardActivity) getActivity()).applyProfile();
+                    loadProfile();
                 }
             });
         }
@@ -134,6 +136,15 @@ public class KatsunaColorSetupPage extends SetupPage {
                     mProfileContrastImpairement.setChecked(true);
                     break;
             }
+
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile,
+                    mProfileMain);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile,
+                    mProfileImpairement);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile,
+                    mProfileContrast);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile,
+                    mProfileContrastImpairement);
         }
     }
 

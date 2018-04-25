@@ -5,7 +5,8 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -15,6 +16,7 @@ import com.katsuna.commons.entities.Gender;
 import com.katsuna.commons.entities.Preference;
 import com.katsuna.commons.entities.PreferenceKey;
 import com.katsuna.commons.entities.UserProfile;
+import com.katsuna.commons.utils.ColorAdjusterV2;
 import com.katsuna.commons.utils.PreferenceUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.setupwizard.R;
@@ -73,14 +75,23 @@ public class KatsunaGenderSetupPage extends SetupPage {
             mRadioFemale = (RadioButton) mRootView.findViewById(R.id.radio_gender_female);
             mRadioOther = (RadioButton) mRootView.findViewById(R.id.radio_gender_other);
             mTextOtherGenderDescr = (EditText) mRootView.findViewById(R.id.text_other_gender_descr);
-            mTextOtherGenderDescr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            mTextOtherGenderDescr.addTextChangedListener(new TextWatcher() {
                 @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (!hasFocus) {
-                        updateOtherPreference();
-                    }
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    updateOtherPreference();
+                }
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
                 }
             });
+
             mRadioGroupGender = (RadioGroup) mRootView.findViewById(R.id.radio_group_gender);
             mRadioGroupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
@@ -153,6 +164,15 @@ public class KatsunaGenderSetupPage extends SetupPage {
                     mTextOtherGenderDescr.setVisibility(View.VISIBLE);
                     break;
             }
+
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mRadioMale, 2,
+                    false);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mRadioFemale, 2,
+                    false);
+            ColorAdjusterV2.adjustRadioButton(getContext(), profile.colorProfile, mRadioOther, 2,
+                    false);
+            ColorAdjusterV2.adjustEditText(getContext(), profile.colorProfile,
+                    mTextOtherGenderDescr);
         }
     }
 

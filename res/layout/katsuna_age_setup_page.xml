@@ -60,6 +60,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
                 android:hint="@string/common_day"
+                android:backgroundTint="@color/common_grey600"
                 android:inputType="number"
                 android:maxLength="2" />
 
@@ -71,8 +72,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
                 android:hint="@string/common_month"
-                android:inputType="number"
-                android:maxLength="2" />
+                android:backgroundTint="@color/common_grey600"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/year"
@@ -83,6 +84,7 @@
                 android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
                 android:hint="@string/common_year"
                 android:inputType="number"
+                android:backgroundTint="@color/common_grey600"
                 android:maxLength="4" />
 
             <TextView
