@@ -12,7 +12,7 @@
   <!-- Hand of use label -->
   <string name="hand_setup">Hand der Nutzung</string>
   <!-- Hand of use description label -->
-  <string name="hand_setup_desc">Wählen Sie Ihre bevorzugte Hand des Eingangs</string>
+  <string name="hand_setup_desc">Wählen Sie Ihre bevorzugte Eingabehand</string>
   <!-- Optical size setup decription label -->
   <string name="size_setup_desc">Wählen Sie die gewünschte Größe der Buchstaben und Symbole</string>
   <!-- Color settings label -->
@@ -22,7 +22,7 @@
   <!-- Back button text -->
   <string name="back">Zurück</string>
   <!-- Sample text for optical size profile preview -->
-  <string name="ithaca_full">Brichst du auf gen Ithaka,
+  <string name="ithaca_full">Brichst du auf gen ITHAKA,
 wünsch dir eine lange Fahrt,
 voller Abenteuer und Erkenntnisse.
 Den Lästrygonen und Zyklopen,
@@ -34,15 +34,15 @@ falls deine Seele sie nicht vor dir aufbaut.</string>
   <!-- Accept button -->
   <string name="accept">Akzeptieren</string>
   <!-- Eula page title -->
-  <string name="eula_title">Allgemeinen Geschäftsbedingungen</string>
+  <string name="eula_title">Nutzungsbedingungen</string>
   <!-- Scroll down label -->
   <string name="scroll_down">nach unten Scrollen</string>
   <!-- Scroll down advice -->
-  <string name="scroll_down_advice">Bitte scrollen Sie nach unten um zuerst alle Begriffe zu lesen.</string>
+  <string name="scroll_down_advice">Bitte scrollen Sie nach unten um zuerst alle Bedingungen zu lesen.</string>
   <!-- Help title -->
-  <string name="navigation_bar">Navigationsbar</string>
+  <string name="navigation_bar">Navigationsleiste</string>
   <!-- Help title description -->
-  <string name="navigation_bar_desc">Am unteren Bildschirmrand gefunden.</string>
+  <string name="navigation_bar_desc">Am unteren Bildschirmrand zu finden.</string>
   <!-- Back button label -->
   <string name="back_button">Zurück-Button</string>
   <!-- Back button desc label -->
@@ -50,33 +50,33 @@ falls deine Seele sie nicht vor dir aufbaut.</string>
   <!-- Home button label -->
   <string name="home_button">Home-Taste</string>
   <!-- Home button desc label -->
-  <string name="home_button_desc">Zum Home-Bildschirm \n lang gedrückt halten für Hilfe</string>
+  <string name="home_button_desc">Zum Home-Bildschirm\nLang gedrückt halten für Assistent</string>
   <!-- Recent button label -->
-  <string name="recent_button">Aktuell-Anwendungen Taste</string>
+  <string name="recent_button">Aktuelle Anwendungen-Taste</string>
   <!-- Recent button desc label -->
-  <string name="recent_button_desc">Zeigt Ihnen die Ausführung von Anwendungen</string>
+  <string name="recent_button_desc">Zeigt Ihnen ausgeführte Anwendungen</string>
   <!-- Navigate label -->
   <string name="navigate">Navigieren</string>
   <!-- Navigate label desc -->
-  <string name="navigate_desc">Wischen Sie von rechts nach links \n oder umgekehrt \n um zwischen Bildschirmen zu navigieren</string>
+  <string name="navigate_desc">Wischen Sie von rechts nach links\noder umgekehrt\num zwischen Bildschirmen zu navigieren</string>
   <!-- Notifications label -->
   <string name="notifications">Benachrichtigungen</string>
   <!-- Notifications label desc -->
-  <string name="notifications_desc">Wischen von Statusleiste  \n nach unteren Displayrand \n um die Benachrichtigungen und die Schnelleinstellungen zu erreichen.</string>
+  <string name="notifications_desc">Wischen von Statusleiste\nzum unteren Displayrand\num die Benachrichtigungen\nund die Schnelleinstellungen\nzu erreichen</string>
   <!-- title for permissions page -->
   <string name="permissions">Berechtigungen</string>
   <!-- description for permissions page -->
-  <string name="permissions_setup_desc">Für die optimale Verwendung des Telefons empfehlen wir einige Zeit zu dauern, und  Berechtigungen für die folgenden Anwendungen zu erteilen</string>
+  <string name="permissions_setup_desc">Für die optimale Verwendung des Telefons empfehlen wir, sich ein wenig Zeit zu nehmen und den folgenden Anwendungen Berechtigungen zu erteilen.</string>
   <!-- description label for katsuna services permission button -->
-  <string name="permissions_label_services">Anregungen und Erinnerungen</string>
+  <string name="permissions_label_services">Vorschläge und Erinnerungen</string>
   <!-- description label for katsuna infoservices permission button -->
   <string name="permissions_label_infoservices">Personalisierte Benutzererfahrung</string>
   <!-- description label for katsuna weather widget permission button -->
   <string name="permissions_label_weather">Startbildschirm Wetter</string>
   <!-- services grant button label -->
-  <string name="grant_to_services">Berechtigungen den Dienstleistungen erteilen</string>
+  <string name="grant_to_services">Berechtigungen den Diensten erteilen</string>
   <!-- infoservices grant button label -->
-  <string name="grant_to_infoservices">Berechtigung den Info Dienstleistungen erteilen</string>
+  <string name="grant_to_infoservices">Berechtigung den Info-Diensten erteilen</string>
   <!-- weather grant button label -->
   <string name="grant_to_weather">Berechtigungen dem Wetter erteilen</string>
   <!-- granted label -->

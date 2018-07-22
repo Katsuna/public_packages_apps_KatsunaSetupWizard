@@ -44,7 +44,7 @@
   <!-- Home button label -->
   <string name="home_button">زر الصفحة الرئيسية</string>
   <!-- Home button desc label -->
-  <string name="home_button_desc">Will take you to home screen \nLong Press to call Assistant</string>
+  <string name="home_button_desc">سوف يأخذك إلى الشاشة الرئيسية \n اضغط على الزر بشكل مستمر لاستدعاء مساعد</string>
   <!-- Recent button label -->
   <string name="recent_button">زر التطبيقات الأخيرة</string>
   <!-- Recent button desc label -->
