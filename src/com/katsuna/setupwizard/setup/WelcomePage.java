@@ -167,6 +167,7 @@ public class WelcomePage extends SetupPage {
         protected void initializePage() {
             mLanguagePicker = (LocalePicker) mRootView.findViewById(R.id.locale_list);
             loadLanguages();
+            mHandler.postDelayed(mUpdateLocale, 1000);
         }
 
         private void loadLanguages() {
