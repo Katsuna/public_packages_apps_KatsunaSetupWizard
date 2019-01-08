@@ -25,6 +25,7 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import com.android.internal.telephony.TelephonyIntents;
+import com.katsuna.commons.utils.KatsunaUtils;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.util.SetupWizardUtils;
 
@@ -60,7 +61,11 @@ public class SetupWizardData extends AbstractSetupData {
         pages.add(new KatsunaFirstHelpPage(mContext, this));
         pages.add(new KatsunaSecondHelpPage(mContext, this));
         pages.add(new KatsunaThirdHelpPage(mContext, this));
-        pages.add(new KatsunaPermissionsPage(mContext, this));
+        if (SetupWizardUtils.isPackageInstalled(mContext, KatsunaUtils.KATSUNA_INFOSERVICES_PACKAGE)
+                || SetupWizardUtils.isPackageInstalled(
+                     mContext, KatsunaUtils.KATSUNA_HOMESCREEN_WIDGET_PACKAGE)) {
+            pages.add(new KatsunaPermissionsPage(mContext, this));
+        }
         pages.add(new FinishPage(mContext, this));
         return new PageList(pages.toArray(new SetupPage[pages.size()]));
     }

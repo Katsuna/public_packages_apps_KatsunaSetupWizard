@@ -55,6 +55,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/katsuna_permissions_label_infoservices"
                 style="@style/katsuna_permissions_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +63,7 @@
                 android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
                 android:ellipsize="end"
                 android:lines="1"
+                android:visibility="gone"
                 android:text="@string/permissions_label_infoservices" />
 
             <Button
@@ -75,9 +77,11 @@
                 android:stateListAnimator="@null"
                 android:text="@string/grant_to_infoservices"
                 android:textAllCaps="false"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:visibility="gone" />
 
             <TextView
+                android:id="@+id/katsuna_permissions_label_weather"
                 style="@style/katsuna_permissions_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,6 +89,7 @@
                 android:layout_marginTop="@dimen/katsuna_page_setting_inner_margin_top"
                 android:ellipsize="end"
                 android:lines="1"
+                android:visibility="gone"
                 android:text="@string/permissions_label_weather" />
 
             <Button
@@ -98,8 +103,8 @@
                 android:stateListAnimator="@null"
                 android:text="@string/grant_to_weather"
                 android:textAllCaps="false"
-                android:textSize="17sp" />
-
+                android:textSize="17sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 

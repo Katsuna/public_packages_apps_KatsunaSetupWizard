@@ -11,18 +11,21 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.katsuna.commons.KatsunaIntents;
 import com.katsuna.commons.entities.ColorProfile;
 import com.katsuna.commons.entities.ColorProfileKey;
 import com.katsuna.commons.entities.UserProfile;
 import com.katsuna.commons.utils.ColorCalc;
+import com.katsuna.commons.utils.KatsunaUtils;
 import com.katsuna.commons.utils.ProfileReader;
 import com.katsuna.commons.utils.Shape;
 import com.katsuna.setupwizard.R;
 import com.katsuna.setupwizard.ui.LoadingFragment;
 import com.katsuna.setupwizard.ui.SetupPageFragment;
 import com.katsuna.setupwizard.ui.SetupWizardActivity;
+import com.katsuna.setupwizard.util.SetupWizardUtils;
 
 public class KatsunaPermissionsPage extends SetupPage {
 
@@ -80,12 +83,22 @@ public class KatsunaPermissionsPage extends SetupPage {
 
     public static class KatsunaPermissionsFragment extends SetupPageFragment {
 
+        private TextView mGrantToInfoServicesTitle;
         private Button mGrantToInfoServicesButton;
+        private TextView mGrantToWeatherTitle;
         private Button mGrantToWeatherButton;
+        private Context mContext;
 
         @Override
         protected void initializePage() {
+            mContext = getContext();
+
+            mGrantToInfoServicesTitle = mRootView.findViewById(R.id.katsuna_permissions_label_infoservices);
             mGrantToInfoServicesButton = (Button) mRootView.findViewById(R.id.grant_infoservices);
+            if (SetupWizardUtils.isPackageInstalled(mContext, KatsunaUtils.KATSUNA_INFOSERVICES_PACKAGE)) {
+                mGrantToInfoServicesTitle.setVisibility(View.VISIBLE);
+                mGrantToInfoServicesButton.setVisibility(View.VISIBLE);
+            }
             mGrantToInfoServicesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -96,7 +109,12 @@ public class KatsunaPermissionsPage extends SetupPage {
                 }
             });
 
+            mGrantToWeatherTitle = mRootView.findViewById(R.id.katsuna_permissions_label_weather);
             mGrantToWeatherButton = (Button) mRootView.findViewById(R.id.grant_weather);
+            if (SetupWizardUtils.isPackageInstalled(mContext, KatsunaUtils.KATSUNA_HOMESCREEN_WIDGET_PACKAGE)) {
+                mGrantToWeatherTitle.setVisibility(View.VISIBLE);
+                mGrantToWeatherButton.setVisibility(View.VISIBLE);
+            }
             mGrantToWeatherButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -114,9 +132,8 @@ public class KatsunaPermissionsPage extends SetupPage {
         @Override
         public void onResume() {
             super.onResume();
-            if (PERMISSION_INFOSERVICES_GRANTED &&
-                    PERMISSION_WEATHER_GRANTED)
-            {
+
+            if (allPermissionsGranted()) {
                 adjustActivityButtons(true);
             } else {
                 adjustActivityButtons(false);
@@ -139,8 +156,7 @@ public class KatsunaPermissionsPage extends SetupPage {
         }
 
         private void adjustProfile() {
-            Context context = getContext();
-            UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(context);
+            UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(mContext);
             if (PERMISSION_INFOSERVICES_GRANTED) {
                 adjustButtonDisabled(mGrantToInfoServicesButton, profile);
             } else {
@@ -154,11 +170,10 @@ public class KatsunaPermissionsPage extends SetupPage {
         }
 
         private void adjustButtonEnabled(Button button, UserProfile profile) {
-            Context context = getContext();
-            int color1 = ColorCalc.getColor(context, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
-            int color2 = ColorCalc.getColor(context, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
-            int whiteResId = ContextCompat.getColor(context, R.color.common_white);
-            int black87ResId = ContextCompat.getColor(context, R.color.common_black87);
+            int color1 = ColorCalc.getColor(mContext, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
+            int color2 = ColorCalc.getColor(mContext, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
+            int whiteResId = ContextCompat.getColor(mContext, R.color.common_white);
+            int black87ResId = ContextCompat.getColor(mContext, R.color.common_black87);
 
             if (profile.colorProfile == ColorProfile.CONTRAST) {
                 Shape.setRoundedBackground(button, color1);
@@ -170,14 +185,12 @@ public class KatsunaPermissionsPage extends SetupPage {
         }
 
         private void adjustButtonDisabled(Button button, UserProfile profile) {
-            Context context = getContext();
-
             button.setText(R.string.granted);
 
-            int color1 = ColorCalc.getColor(context, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
-            int color2 = ColorCalc.getColor(context, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
-            int whiteResId = ContextCompat.getColor(context, R.color.common_white);
-            int black87ResId = ContextCompat.getColor(context, R.color.common_black87);
+            int color1 = ColorCalc.getColor(mContext, ColorProfileKey.ACCENT1_COLOR, profile.colorProfile);
+            int color2 = ColorCalc.getColor(mContext, ColorProfileKey.ACCENT2_COLOR, profile.colorProfile);
+            int whiteResId = ContextCompat.getColor(mContext, R.color.common_white);
+            int black87ResId = ContextCompat.getColor(mContext, R.color.common_black87);
 
             if (profile.colorProfile == ColorProfile.CONTRAST) {
                 Shape.setRoundedBackground(button, color2);
@@ -198,24 +211,20 @@ public class KatsunaPermissionsPage extends SetupPage {
                 if (requestCode == REQUEST_FOR_PERMISSIONS_INFOSERVICES) {
                     Log.d(TAG, "onActivityResult permissionsGranted for infoservices");
                     if (permissionsGranted) {
-                        Context context = getContext();
-                        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(context);
+                        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(mContext);
                         adjustButtonDisabled(mGrantToInfoServicesButton, profile);
                         PERMISSION_INFOSERVICES_GRANTED = true;
                     }
                 } else if (requestCode == REQUEST_FOR_PERMISSIONS_WEATHER) {
                     Log.d(TAG, "onActivityResult permissionsGranted for weather");
                     if (permissionsGranted) {
-                        Context context = getContext();
-                        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(context);
+                        UserProfile profile = ProfileReader.getUserProfileFromKatsunaServices(mContext);
                         adjustButtonDisabled(mGrantToWeatherButton, profile);
                         PERMISSION_WEATHER_GRANTED = true;
                     }
                 }
 
-                if (PERMISSION_INFOSERVICES_GRANTED &&
-                        PERMISSION_WEATHER_GRANTED)
-                {
+                if (allPermissionsGranted()) {
                     adjustActivityButtons(true);
                 } else {
                     adjustActivityButtons(false);
@@ -229,6 +238,15 @@ public class KatsunaPermissionsPage extends SetupPage {
             } else {
                 ((SetupWizardActivity) getActivity()).applyProfileForPermissionsPage();
             }
+        }
+
+        private boolean allPermissionsGranted() {
+            boolean infoServicesGrantedOrMissing = PERMISSION_INFOSERVICES_GRANTED
+                    || !SetupWizardUtils.isPackageInstalled(mContext, KatsunaUtils.KATSUNA_INFOSERVICES_PACKAGE);
+            boolean weatherGrantedOrMissing = PERMISSION_WEATHER_GRANTED
+                    || !SetupWizardUtils.isPackageInstalled(mContext, KatsunaUtils.KATSUNA_HOMESCREEN_WIDGET_PACKAGE);
+
+            return infoServicesGrantedOrMissing && weatherGrantedOrMissing;
         }
 
 
